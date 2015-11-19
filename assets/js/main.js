@@ -4,14 +4,14 @@ $(document).ready(function () {
     	/* scroll back to projects */
         $("html, body").animate({
             scrollTop: $("#projects").offset().top
-        }, 1000, 'easeInOutExpo');
+        }, 1200, 'easeInOutExpo');
         return false;
     });
     $('.scrolldown').click(function() {
     	/* get href of itself and animate scroll */
     	$("html, body").animate({
             scrollTop: $($(this).attr("href")).offset().top
-        }, 1000, 'easeInOutExpo');
+        }, 1200, 'easeInOutExpo');
     	return false;
     });
 
