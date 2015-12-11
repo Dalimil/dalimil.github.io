@@ -31,7 +31,7 @@ $(document).ready(function () {
 			parallax: true,
 
 		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 20
+			parallaxFactor: 25
 
 	};
 
@@ -113,19 +113,13 @@ $(document).ready(function () {
 
 				}
 
-		// Main Sections: Two.
+		// Poptrox - popup projects 
 
-			// Lightbox gallery.
 				$window.on('load', function() {
 
-					$('#two').poptrox({
-						caption: function($a) { return $a.next('h3').text(); },
-						overlayColor: '#2c2c2c',
+					$('#projects').poptrox({
 						overlayOpacity: 0.85,
-						popupCloserText: '',
-						popupLoaderText: '',
-						selector: '.work-item a.image',
-						usePopupCaption: true,
+						selector: '.popup', /*'.work-item a.image',*/
 						usePopupDefaultStyling: false,
 						usePopupEasyClose: false,
 						usePopupNav: true,
