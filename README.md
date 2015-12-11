@@ -1,2 +1,2 @@
 # dalimil.github.io
-My website
+## Dalimil Hajek's personal website
