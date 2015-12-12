@@ -16,6 +16,9 @@
             margin: 0px 0px 10px;
         }
         </style>
+        <!-- for YouTube embedded videos -->
+        <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        </style>
     </head>
     <body id="top">
 
@@ -146,7 +149,10 @@
                         <p>
                         What I eventually did was to programmatically imitate a real user signing into Facebook and posting posts by sending HTTP requests in a similar way a web browser does. Still, there were some more issues such as Facebook’s spam filters or also the posts not being in the correct order. These have all been dealt with. <em>Tadaaa...</em>
                         </p>
-                        <div style="text-align: center;"><iframe width="640" height="480" src="https://www.youtube.com/embed/iLEuyY9VBaU?rel=0" frameborder="0" allowfullscreen></iframe><p><em>Sorry for the video lag. Showing over 2000 posts on a single Facebook page is a bit too much.</em></p></div>
+                        <div style="text-align: center;">
+                        	<div class='embed-container'><iframe src='https://www.youtube.com/embed/iLEuyY9VBaU?rel=0' frameborder='0' allowfullscreen></iframe></div>
+						<p><em>Sorry for the video lag. Showing over 2000 posts on a single Facebook page is a bit too much.</em></p>
+						</div>
                         <p style="text-align: right;"><br /><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
                     </section>
                     <section id="kepler-app" class="project-details">
