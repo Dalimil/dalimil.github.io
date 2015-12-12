@@ -11,6 +11,7 @@ $(document).ready(function () {
         }, 1000, 'easeInOutExpo');
         return false;
     });
+
     $('.scrolldown').click(function() {
     	/* first disable all */
     	z = document.getElementsByClassName("project-details");
@@ -29,10 +30,11 @@ $(document).ready(function () {
 
 
     $("#typed-animation").typed({
-        /*strings: ["Hello, I'm Dalimil", "It <em>types</em> out sentences.", "Try it out!"],*/
-        stringsElement: $('#typed-strings'),
-        typeSpeed: 20,
-        startDelay: 500,
+        strings: ["It's pronounced /'Dah-limil 'Ha-yek/^1000", 
+        	"I am a Computer Science student^500 at the University of Edinburgh.^500<br />I love hackathons^500 and programming contests."],
+        /* stringsElement: $('#typed-strings'), */
+        typeSpeed: 10,
+        startDelay: 300,
         backDelay: 500,
         loop: false,
         contentType: 'html', // or text
