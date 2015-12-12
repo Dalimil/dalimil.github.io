@@ -1,24 +1,35 @@
+/*
+ * Dalimil Hajek
+ */
+
 $(document).ready(function () {
 
     $('.scrollup').click(function () {
     	/* scroll back to projects */
         $("html, body").animate({
             scrollTop: $("#projects").offset().top
-        }, 1200, 'easeInOutExpo');
+        }, 1000, 'easeInOutExpo');
         return false;
     });
     $('.scrolldown').click(function() {
+    	/* first disable all */
+    	z = document.getElementsByClassName("project-details");
+    	for(var i =0;i < z.length; i++){ 
+    		z[i].style.display = "none"; 
+    	}
+
+    	$($(this).attr("href")).css("display", ""); /* enable only this */
+
     	/* get href of itself and animate scroll */
     	$("html, body").animate({
             scrollTop: $($(this).attr("href")).offset().top
-        }, 1200, 'easeInOutExpo');
+        }, 1000, 'easeInOutExpo');
     	return false;
     });
 
 });
 
 /*
-	Strata by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
