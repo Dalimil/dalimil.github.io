@@ -27,6 +27,18 @@ $(document).ready(function () {
     	return false;
     });
 
+
+    $("#typed-animation").typed({
+        /*strings: ["Hello, I'm Dalimil", "It <em>types</em> out sentences.", "Try it out!"],*/
+        stringsElement: $('#typed-strings'),
+        typeSpeed: 20,
+        startDelay: 500,
+        backDelay: 500,
+        loop: false,
+        contentType: 'html', // or text
+        // Callback can be specified - see https://github.com/mattboldt/typed.js
+    });
+
 });
 
 /*
