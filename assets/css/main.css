@@ -2044,7 +2044,7 @@
 				transition: opacity 0.2s ease-in-out;
 				color: #fff;
 				content: "\f067";
-    			font-family: FontAwesome;
+				font-family: FontAwesome;
 				font-size: 4em;
 				position: absolute;
 				top: 50%;
@@ -2593,55 +2593,69 @@
 				margin-top: 0;
 				padding-top: 0;
 			}
+
 /* My project-details */
 	.project-details {
 		text-align: justify;
 	}
 
-/* Small margin bellow images in project list */
-    #projects .image {
-        margin: 0px 0px 15px; 
-    }
+	.project-details.active-shadow > h1 {
+		text-shadow:1px 1px 60px #7070ff;   
+	}
 
-    #projects article h3 {
-        margin: 0px 0px 10px;
-    }
+	.project-details:not(.active-shadow) > h1 {
+		-webkit-transition:text-shadow 0.8s linear;
+		-moz-transition:text-shadow 0.8s linear;
+		-o-transition:text-shadow 0.8s linear;
+		-ms-transition:text-shadow 0.8s linear;
+		transition:text-shadow 0.8s linear;  
+	}
+
+
+/* Small margin bellow images in project list */
+	#projects .image {
+		margin: 0px 0px 15px; 
+	}
+
+	#projects article h3 {
+		margin: 0px 0px 10px;
+	}
 
 /* code for animated blinking cursor */
-    .typed-cursor{
-        opacity: 1;
-        font-weight: 100;
-        -webkit-animation: blink 0.7s infinite;
-        -moz-animation: blink 0.7s infinite;
-        -ms-animation: blink 0.7s infinite;
-        -o-animation: blink 0.7s infinite;
-        animation: blink 0.7s infinite;
-    }
-    @-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-webkit-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-moz-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-ms-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
-    @-o-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-    }
+	.typed-cursor{
+		opacity: 1;
+		font-weight: 100;
+		-webkit-animation: blink 0.7s infinite;
+		-moz-animation: blink 0.7s infinite;
+		-ms-animation: blink 0.7s infinite;
+		-o-animation: blink 0.7s infinite;
+		animation: blink 0.7s infinite;
+	}
+	@-keyframes blink{
+		0% { opacity:1; }
+		50% { opacity:0; }
+		100% { opacity:1; }
+	}
+	@-webkit-keyframes blink{
+		0% { opacity:1; }
+		50% { opacity:0; }
+		100% { opacity:1; }
+	}
+	@-moz-keyframes blink{
+		0% { opacity:1; }
+		50% { opacity:0; }
+		100% { opacity:1; }
+	}
+	@-ms-keyframes blink{
+		0% { opacity:1; }
+		50% { opacity:0; }
+		100% { opacity:1; }
+	}
+	@-o-keyframes blink{
+		0% { opacity:1; }
+		50% { opacity:0; }
+		100% { opacity:1; }
+	}
 
 /* Poptrox */
 

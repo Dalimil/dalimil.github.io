@@ -12,12 +12,18 @@ $(document).ready(function () {
     	/* first disable all */
     	$(".project-details").hide();
 
-    	$($(this).attr("href")).show(); /* enable only this one */
+    	var pSection = $(this).attr("href");
+    	$(pSection).show(); /* enable only this one */
 
     	/* get href of itself and animate scroll */
     	$("html, body").animate({
-            scrollTop: $($(this).attr("href")).offset().top
+            scrollTop: $(pSection).offset().top
         }, 1000, 'easeInOutExpo');
+
+    	/* Text Shadow for the title */ 
+        $(pSection).addClass("active-shadow");
+	    setTimeout(function() { $(pSection).removeClass("active-shadow"); }, 900);
+
     	return false;
     });
 
