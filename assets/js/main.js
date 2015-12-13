@@ -10,12 +10,9 @@ $(document).ready(function () {
 
     $('.scrolldown').click(function() {
     	/* first disable all */
-    	z = document.getElementsByClassName("project-details");
-    	for(var i =0;i < z.length; i++){ 
-    		z[i].style.display = "none"; 
-    	}
+    	$(".project-details").hide();
 
-    	$($(this).attr("href")).css("display", ""); /* enable only this */
+    	$($(this).attr("href")).show(); /* enable only this one */
 
     	/* get href of itself and animate scroll */
     	$("html, body").animate({
