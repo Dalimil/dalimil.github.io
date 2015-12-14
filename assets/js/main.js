@@ -73,6 +73,18 @@ $(document).ready(function () {
 
 			$window.on('load', function() {
 				$body.removeClass('is-loading');
+
+
+				// Poptrox - popup settings
+				$('#projects').poptrox({
+					overlayOpacity: 0.85,
+					selector: '.popup', /*'.work-item a.image',*/
+					usePopupDefaultStyling: false,
+					usePopupEasyClose: false,
+					usePopupNav: true,
+					windowMargin: (skel.breakpoint('small').active ? 0 : 50)
+				});
+
 			});
 
 		// Touch?
@@ -87,17 +99,6 @@ $(document).ready(function () {
 					}, 0);
 
 			}
-
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
 
 		// Header.
 
@@ -131,21 +132,6 @@ $(document).ready(function () {
 					});
 
 				}
-
-		// Poptrox - popup projects 
-
-				$window.on('load', function() {
-
-					$('#projects').poptrox({
-						overlayOpacity: 0.85,
-						selector: '.popup', /*'.work-item a.image',*/
-						usePopupDefaultStyling: false,
-						usePopupEasyClose: false,
-						usePopupNav: true,
-						windowMargin: (skel.breakpoint('small').active ? 0 : 50)
-					});
-
-				});
 
 	});
 
