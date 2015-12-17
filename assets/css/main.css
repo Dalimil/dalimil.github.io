@@ -2599,6 +2599,11 @@
 		text-align: justify;
 	}
 
+	.project-date {
+		float: right; 
+		margin-top: -5%;
+	}
+
 	.project-details.active-shadow > h1 {
 		text-shadow:1px 1px 60px #7070ff;   
 	}
