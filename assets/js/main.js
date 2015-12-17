@@ -30,10 +30,10 @@ $(document).ready(function () {
 
 	$("#typed-animation").typed({
 		strings: ["It's pronounced /'Dah-limil 'Ha-yek/^1000", 
-			"I am a Computer Science student^500 at the University of Edinburgh.^500<br />I love hackathons^500 and programming contests."],
+			"I am a Computer Science student^400 at the University of Edinburgh.^400<br />I love hackathons^400 and programming contests."],
 		/* stringsElement: $('#typed-strings'), */
 		typeSpeed: 10,
-		startDelay: 300,
+		startDelay: 500,
 		backDelay: 500,
 		loop: false,
 		contentType: 'html', // or text
