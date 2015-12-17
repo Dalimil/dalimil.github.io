@@ -1,44 +1,44 @@
 $(document).ready(function () {
 
-    $('.scrollup').click(function () {
-    	/* scroll back to projects */
-        $("html, body").animate({
-            scrollTop: $("#projects").offset().top
-        }, 1000, 'easeInOutExpo');
-        return false;
-    });
+	$('.scrollup').click(function () {
+		/* scroll back to projects */
+		$("html, body").animate({
+			scrollTop: $("#projects").offset().top
+		}, 1000, 'easeInOutExpo');
+		return false;
+	});
 
-    $('.scrolldown').click(function() {
-    	/* first disable all */
-    	$(".project-details").hide();
+	$('.scrolldown').click(function() {
+		/* first disable all */
+		$(".project-details").hide();
 
-    	var pSection = $(this).attr("href");
-    	$(pSection).show(); /* enable only this one */
+		var pSection = $(this).attr("href");
+		$(pSection).show(); /* enable only this one */
 
-    	/* get href of itself and animate scroll */
-    	$("html, body").animate({
-            scrollTop: $(pSection).offset().top
-        }, 1000, 'easeInOutExpo');
+		/* get href of itself and animate scroll */
+		$("html, body").animate({
+			scrollTop: $(pSection).offset().top
+		}, 1000, 'easeInOutExpo');
 
-    	/* Text Shadow for the title */ 
-        $(pSection).addClass("active-shadow");
-	    setTimeout(function() { $(pSection).removeClass("active-shadow"); }, 900);
+		/* Text Shadow for the title */ 
+		$(pSection).addClass("active-shadow");
+		setTimeout(function() { $(pSection).removeClass("active-shadow"); }, 900);
 
-    	return false;
-    });
+		return false;
+	});
 
 
-    $("#typed-animation").typed({
-        strings: ["It's pronounced /'Dah-limil 'Ha-yek/^1000", 
-        	"I am a Computer Science student^500 at the University of Edinburgh.^500<br />I love hackathons^500 and programming contests."],
-        /* stringsElement: $('#typed-strings'), */
-        typeSpeed: 10,
-        startDelay: 300,
-        backDelay: 500,
-        loop: false,
-        contentType: 'html', // or text
-        // Callback can be specified - see https://github.com/mattboldt/typed.js
-    });
+	$("#typed-animation").typed({
+		strings: ["It's pronounced /'Dah-limil 'Ha-yek/^1000", 
+			"I am a Computer Science student^500 at the University of Edinburgh.^500<br />I love hackathons^500 and programming contests."],
+		/* stringsElement: $('#typed-strings'), */
+		typeSpeed: 10,
+		startDelay: 300,
+		backDelay: 500,
+		loop: false,
+		contentType: 'html', // or text
+		// Callback can be specified - see https://github.com/mattboldt/typed.js
+	});
 
 });
 
