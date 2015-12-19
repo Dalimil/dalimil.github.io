@@ -73,18 +73,6 @@ $(document).ready(function () {
 
 			$window.on('load', function() {
 				$body.removeClass('is-loading');
-
-
-				// Poptrox - popup settings
-				$('#projects').poptrox({
-					overlayOpacity: 0.85,
-					selector: '.popup', /*'.work-item a.image',*/
-					usePopupDefaultStyling: false,
-					usePopupEasyClose: false,
-					usePopupNav: true,
-					windowMargin: (skel.breakpoint('small').active ? 0 : 50)
-				});
-
 			});
 
 		// Touch?
