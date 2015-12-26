@@ -2062,6 +2062,9 @@
 				background: url("images/overlay70.png");
 				opacity: 1.0;
 			}
+			.image.thumb:hover + h3 { /* Selects h3 project name (after) below image */
+				color: #ce493d;
+			}
 
 		.image img {
 			border-radius: 0.35em;
