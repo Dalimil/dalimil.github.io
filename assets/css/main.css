@@ -2629,6 +2629,11 @@
 		margin: 0px 0px 10px;
 	}
 
+
+	.basic-border {
+		border: 1px solid black;
+	}
+
 /* code for animated blinking cursor */
 	.typed-cursor{
 		opacity: 1;
