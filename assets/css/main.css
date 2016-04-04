@@ -2517,12 +2517,12 @@
 			}
 
 				#footer .icons {
-					margin-left: 10%;
+					margin-left: 8%;
 					margin-top: -15%;
 				}
 
 				#footer .copyright {
-					margin-left: 10%;
+					margin-left: 8%;
 					margin-top: 0;
 				}
 
@@ -2554,31 +2554,22 @@
 				font-size: 1em;
 			}
 
-		/* List */
-
-			ul.labeled-icons li {
-				padding-left: 2em;
-			}
-
-				ul.labeled-icons li h3 {
-					line-height: 1.75em;
-				}
-
 		/* Header */
-
-			#header {
-				padding: 2.25em 1.5em;
-			}
 
 				#header h1 {
 					font-size: 1.35em;
 				}
 
 		/* Footer */
+				#footer .icons {
+					margin-left: 12%;
+					margin-top: -22%;
+				}
 
-			#footer {
-				padding: 2.25em 1.5em;
-			}
+				#footer .copyright {
+					margin-left: 12%;
+					margin-top: 0;
+				}
 
 		/* Main */
 
