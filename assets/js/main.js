@@ -50,7 +50,7 @@ $(document).ready(function () {
 			parallax: true,
 
 		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 70
+			parallaxFactor: 90
 
 	};
 
