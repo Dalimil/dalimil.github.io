@@ -1917,6 +1917,7 @@
 			}
 
 			.image.avatar img {
+				border: 1px solid white;
 				border-radius: 100%;
 				width: 100%;
 			}
@@ -2281,7 +2282,7 @@
 		color: rgba(255, 255, 255, 0.6);
 		height:100%;
 		left: 0;
-		padding: 8em 4em 0 0;
+		padding: 6em 4em 0 0;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -2312,7 +2313,7 @@
 
 		#header .image.avatar {
 			margin: 0 0 1em 0;
-			width: 6.25em;
+			width: 7em;
 		}
 
 /* Footer */
