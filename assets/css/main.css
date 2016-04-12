@@ -1917,7 +1917,7 @@
 			}
 
 			.image.avatar img {
-				border: 1px solid white;
+				border: 1px solid #b2b2b2;
 				border-radius: 100%;
 				width: 100%;
 			}
@@ -2335,6 +2335,9 @@
 
 			#footer .icons a {
 				color: rgba(255, 255, 255, 0.5);
+			}
+			#footer .icons a:hover {
+				color: #ffffff !important;
 			}
 
 		#footer .copyright {
