@@ -129,7 +129,8 @@
 						<a class="image right" href="https://chrome.google.com/webstore/detail/mosaic/jjkdinonnkgnnapdocolkjfnabepfkmj"><img src="images/chrome-web-store.png" alt="Mosaic in the Chrome Web Store"></a>
 						<h1>Mosaic - Chrome App</h1>
 						<p><strong>Mosaic</strong> is a Chrome app that was built during the Facebook London Hackathon (12-13th March 2016) and is now available in the <a href="https://chrome.google.com/webstore/detail/mosaic/jjkdinonnkgnnapdocolkjfnabepfkmj">Chrome Web Store</a>.</p>
-						<p>Mosaic offers an innovative way of browsing the internet using multiple web pages in a single window view rather than many individual tabs. Users have the ability to add, delete, resize and drag and drop webpage views. User session is stored in Google Cloud so that reopening the app always restores the last opened web pages.</p>
+						<p>Mosaic creates an innovative window layout for the browser using multiple web pages in a single window view rather than many individual tabs. Users have the ability to add, delete, resize and drag &amp; drop webpage views. <br />
+						User session is stored in Google Cloud so that reopening the app always restores the last opened web pages.</p>
 						<span class="image fit"><img src="images/mosaic-chrome-app.jpg" alt="Mosaic - Chrome App - Dalimil Hajek"></span>
 						<p>
 						The representation of the layout is implemented as a binary tree. <br />
@@ -192,7 +193,7 @@
 						I thought it would be cool to visualize a graph of people who are my friends on Facebook. Nodes would represent people, with an edge between two nodes whenever those two people were friends.
 						</p>
 						<p>
-						First of all, I had to get the data set - I needed to get the 'friend list' of every user that I am friends with. Unfortunately, Facebook API does not support this. I've read that it did support it to some extent in the past (API v1.0) but due to privacy concerns this functionality has been removed (since API v2.0 - April 2014). 
+						First of all, I had to get the data set - I needed to get the 'friend list' of every user that I am friends with. Unfortunately, Facebook API does not support this. It did support it to some extent in the past (API v1.0) but due to privacy concerns this functionality has been removed (since API v2.0 - April 2014). 
 						</p>
 						<p>
 						The only option left was to write a script that would log in to Facebook and crawl the network graph. 
@@ -204,11 +205,6 @@
 						<p>
 						Do you know how Facebook only shows you the first 20 friends when you visit somebody's profile? How you need to scroll down and wait until Facebook asynchronously pulls more friend profiles in the background? <br />
 						Well, that was the real challenge to do in my code.
-						</p>
-						<p>
-						And when I was almost done, my little bot started receiving 'Security Check Required'. <br />
-						I am not going to say how I got past that, but it was most amusing when I figured it out.<br />
-						To make the graph a bit more fancy, I also pulled my friends' profile images and set them as nodes.
 						</p>
 						<p>
 						When I finally had the whole graph of my Facebook friends, I produced a <strong>DOT language</strong> file as output. I then used <a href="http://www.graphviz.org/"><strong>Graphviz</strong></a> to visualize the graph, but instead of using <strong>dot</strong>, the default graph layout mode (which works particularly well for hierarchical graphs), I used <strong>circo</strong>. Circo is a graph layout program (still part of the Graphviz package) for circular layouts. It identifies biconnected components and draws the nodes of each component on a separate circle. Edge crossings within a circle are minimized by placing as many edges on the circle's perimeter as possible.
@@ -241,10 +237,8 @@
 						<div class="6u$"><span class="image fit"><img class="basic-border" src="images/code-for-good-team-members.jpg" alt="Dalimil Hajek - JPMorgan hackathon team members"></span></div>
 						</div><br />
 						<p>
-						My team (consisting of me and 4 other Edinburgh students) developed a web application for Urban Roots. We made it possible for volunteers to sign up through the website, choose projects that they want to take part in, and see an embedded Google Map with all their current projects.
-						</p>
-						<p>
-						At the same time, we built an Android app that provided similar functionality to the website, but also allowed anyone to take a photo with their phone and thus report vandalism or any other issue seen in public places (Urban Roots made a request for this feature).
+						My team (consisting of me and 4 other Edinburgh students) developed a web application for Urban Roots. We made it possible for volunteers to sign up through the website, choose projects that they want to take part in, and see an embedded Google Map with all their current projects. <br />
+						We also made an Android app that provided similar functionality but also allowed anyone to report vandalism by simply taking a photo.
 						</p>
 						<div class="row 25% uniform">
 						<div class="6u"><span class="image fit"><img class="basic-border" src="images/urban-roots-2-dalimil-hajek.jpg" alt="Dalimil Hajek - Code for Good - Urban Roots"></span></div>
@@ -254,7 +248,7 @@
 						In addition, we created an admin section (on the website) where anyone from Urban Roots could easily manage existing projects, get in touch with volunteers, and also see a list of reported issues.
 						</p>
 						<p>
-						My team won the first stage, where each non-profit organization selected a team that came up with the best solution for their challenge. And after that, when each of the three winning teams presented their projects to a different set of judges (yes, we did the same presentation twice) we were selected as the best team overall and thus we became the winners of the entire hackathon. :-) <br />
+						At the end of the hackathon, our team won the first prize.<br />
 						<strong>Find <a href="https://github.com/Dalimil/JPMorgan-Hackathon">more on GitHub</a>.</strong>
 						</p>
 						<p style="text-align: right;"><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
@@ -267,7 +261,7 @@
 						<p>This was a weekend hackathon that took place on the 3-4th October 2015 in Edinburgh. The goal was to build a web application that would use both <a href="http://www.skyscanner.net"><strong>Skyscanner</strong></a> API and <a href="https://makeitsocial.com"><strong>Make it Social</strong></a> API.</p>
 						<span class="image fit"><img src="images/skyscanner-hackathon.jpg" alt="Skyscanner + Make it Social - HACKDAY"></span>
 						<p>Our team (me and Miguel Jaques, also an Edinburgh student) won the first prize. <br />We built an app that allowed groups of people coming from different countries to a single destination find optimal flights with similar arrival times. <br />
-						<strong>Find <a href="https://github.com/Dalimil/Skyscanner-Hackday">more on GitHub</a>.</strong>
+						<strong>Find the <a href="https://github.com/Dalimil/Skyscanner-Hackday">code on GitHub</a>.</strong>
 						</p>
 						<div class="row 25% uniform">
 						<div class="6u"><span class="image fit"><img src="images/dalimil-hajek-makeitsocial-hackathon.jpg" alt="Dalimil Hajek - Make it Social Hackathon"></span></div>
