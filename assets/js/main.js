@@ -27,19 +27,21 @@ $(document).ready(function () {
 		return false;
 	});
 
-
-	$("#typed-animation").typed({
-		strings: ["It's pronounced /'Dah-limil 'Ha-yek/^900", 
-			"I am a Computer Science student^200 at the University of Edinburgh.^200<br />I love hackathons^200 and programming contests."],
-		/* stringsElement: $('#typed-strings'), */
-		typeSpeed: 0,
-		startDelay: 500,
-		backDelay: 500,
-		loop: false,
-		contentType: 'html', // or text
-		// Callback can be specified - see https://github.com/mattboldt/typed.js
-	});
-
+	if(skel.vars.mobile) {
+		$("#intro-header").hide();
+	} else {
+		$("#typed-animation").typed({
+			strings: ["It's pronounced /'Dah-limil 'Ha-yek/^900", 
+				"I am a Computer Science student^200 at the University of Edinburgh.^200<br />I love hackathons^200 and programming contests."],
+			/* stringsElement: $('#typed-strings'), */
+			typeSpeed: 0,
+			startDelay: 500,
+			backDelay: 500,
+			loop: false,
+			contentType: 'html', // or text
+			// Callback can be specified - see https://github.com/mattboldt/typed.js
+		});
+	}
 });
 
 (function($) {

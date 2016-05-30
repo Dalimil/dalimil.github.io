@@ -2514,27 +2514,18 @@
 
 		/* Footer */
 			#footer {
-				left: auto;
 				position: relative;
 				text-align: center;
+				margin-top: -8em;
+				padding: 0px;
 				width: 100%;
 			}
-
-				#footer .icons {
-					margin-left: 8%;
-					margin-top: -15%;
-				}
-
-				#footer .copyright {
-					margin-left: 8%;
-					margin-top: 0;
-				}
 
 		/* Main */
 
 			#main {
 				margin: 0;
-				padding: 6em 4em;
+				padding: 4em 4em;
 				width: 100%;
 			}
 
@@ -2564,21 +2555,10 @@
 					font-size: 1.35em;
 				}
 
-		/* Footer */
-				#footer .icons {
-					margin-left: 12%;
-					margin-top: -22%;
-				}
-
-				#footer .copyright {
-					margin-left: 12%;
-					margin-top: 0;
-				}
-
 		/* Main */
 
 			#main {
-				padding: 2.25em 1.5em 0.25em 1.5em;
+				padding: 4em 1.5em;
 			}
 
 				#main > section {
