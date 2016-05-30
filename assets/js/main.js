@@ -29,8 +29,8 @@ $(document).ready(function () {
 
 
 	$("#typed-animation").typed({
-		strings: ["It's pronounced /'Dah-limil 'Ha-yek/^1000", 
-			"I am a Computer Science student^400 at the University of Edinburgh.^400<br />I love hackathons^400 and programming contests."],
+		strings: ["It's pronounced /'Dah-limil 'Ha-yek/^900", 
+			"I am a Computer Science student^200 at the University of Edinburgh.^200<br />I love hackathons^200 and programming contests."],
 		/* stringsElement: $('#typed-strings'), */
 		typeSpeed: 0,
 		startDelay: 500,
