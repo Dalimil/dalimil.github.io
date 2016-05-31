@@ -1,43 +1,24 @@
 $(document).ready(function () {
 
-	$('.scrollup').click(function () {
-		/* scroll back to projects */
-		$("html, body").animate({
-			scrollTop: $("#projects").offset().top
-		}, 1000, 'easeInOutExpo');
-		return false;
-	});
-
-	$('.scrolldown').click(function() {
-		/* first disable all */
-		$(".project-details").hide();
-
-		var pSection = $(this).attr("href");
-		$(pSection).show(); /* enable only this one */
-
-		/* get href of itself and animate scroll */
-		$("html, body").animate({
-			scrollTop: $(pSection).offset().top
-		}, 1000, 'easeInOutExpo');
-
-		/* Text Shadow for the title */ 
-		$(pSection).addClass("active-shadow");
-		setTimeout(function() { $(pSection).removeClass("active-shadow"); }, 900);
-
-		return false;
-	});
-
 	var settings = {
 		parallax: true, // Parallax background effect?
 		parallaxFactor: 90 // Parallax factor (lower = more intense, higher = less intense).
 	};
 
-	skel.breakpoints({
+	// skel.js
+	skel.breakpoints({ 
 		xlarge: '(max-width: 1800px)',
 		large: '(max-width: 1280px)',
 		medium: '(max-width: 980px)',
 		small: '(max-width: 736px)',
 		xsmall: '(max-width: 480px)'
+	});
+
+	// skel-layout.js
+	skel.layout({ 
+	    reset: "normalize",
+	    grid: true,
+	    containers: true
 	});
 
 	$(function() {
@@ -88,6 +69,33 @@ $(document).ready(function () {
 			});
 		}
 
+	});
+
+	$('.scrollup').click(function () {
+		/* scroll back to projects */
+		$("html, body").animate({
+			scrollTop: $("#projects").offset().top
+		}, 1000, 'easeInOutExpo');
+		return false;
+	});
+
+	$('.scrolldown').click(function() {
+		/* first disable all */
+		$(".project-details").hide();
+
+		var pSection = $(this).attr("href");
+		$(pSection).show(); /* enable only this one */
+
+		/* get href of itself and animate scroll */
+		$("html, body").animate({
+			scrollTop: $(pSection).offset().top
+		}, 1000, 'easeInOutExpo');
+
+		/* Text Shadow for the title */ 
+		$(pSection).addClass("active-shadow");
+		setTimeout(function() { $(pSection).removeClass("active-shadow"); }, 900);
+
+		return false;
 	});
 
 	// Typing animation
