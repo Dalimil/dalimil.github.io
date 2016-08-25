@@ -144,8 +144,8 @@ $(function () {
 		  "interactivity": {
 		    "detect_on": "canvas",
 		    "events": {
-		      "onhover": { "enable": true, "mode": "bubble" },
-		      "onclick": { "enable": true, "mode": "push" },
+		      "onhover": { "enable": false, "mode": "bubble" },
+		      "onclick": { "enable": true, "mode": "repulse" },
 		      "resize": true
 		    },
 		    "modes": {
@@ -153,7 +153,7 @@ $(function () {
 		      "bubble": {
 		        "distance": 400, "size": 4, "duration": 2, "opacity": 8, "speed": 3
 		      },
-		      "repulse": { "distance": 200, "duration": 0.4 },
+		      "repulse": { "distance": 150, "duration": 0.4 },
 		      "push": { "particles_nb": 4 },
 		      "remove": { "particles_nb": 2 }
 		    }
