@@ -717,6 +717,15 @@
 			width: 7em;
 		}
 
+/* Particles - matches header dimensions*/
+#particles-js {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 30%;
+}
+
 /* Footer */
 
 	#footer {
