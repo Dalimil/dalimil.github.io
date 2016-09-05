@@ -98,7 +98,7 @@ $(function () {
 		$("#intro-header").hide();
 	} else {
 		$("#typed-animation").typed({
-			strings: ["It's pronounced /'Dah-limil 'Ha-yek/^900", 
+			strings: ["It's pronounced /'DA-luh-mil 'HA-yek/^900",
 				"Computer Science undergraduate,<br />Developer and Hackathon enthusiast^1200!^4000!!"],
 			/* stringsElement: $('#typed-strings'), */
 			typeSpeed: 0,
