@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# browserify js/main.js | uglifyjs > js/bundle.js
+# browserify js/main.js | uglifyjs > bundle.js
 uglifyjs js/main.js > bundle.js
