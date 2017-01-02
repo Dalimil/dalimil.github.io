@@ -802,7 +802,7 @@
 	.project-details {
 		text-align: justify;
 	}
-	
+
 	.project-details > h1 {
 		text-align: left;
 	}
@@ -977,6 +977,10 @@
 					font-size: 1.35em;
 				}
 
+			.title-float-image {
+				display: none;
+			}
+			
 		/* Main */
 
 			#main {
