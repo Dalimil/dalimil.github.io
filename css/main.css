@@ -802,6 +802,10 @@
 	.project-details {
 		text-align: justify;
 	}
+	
+	.project-details > h1 {
+		text-align: left;
+	}
 
 	.project-date {
 		float: right; 
