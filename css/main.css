@@ -674,6 +674,10 @@
 
 
 /* Header */
+	.university-image {
+		width: 16em;
+	}
+
 	#header {
 		background-color: #160B09;
 		background-size: cover;
@@ -909,6 +913,10 @@
 
 	@media screen and (max-width: 980px) {
 
+		.university-image {
+			width: 14em;
+		}
+		
 		/* List */
 
 			ul.icons li .icon {
@@ -980,7 +988,7 @@
 			.title-float-image {
 				display: none;
 			}
-			
+
 		/* Main */
 
 			#main {
