@@ -1,5 +1,5 @@
 @import url("font-awesome.min.css");
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic);
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,700');
 
 /**
  *	Parts of this file were based on code under the CC BY 3.0 license. (Creative Commons Attribution 3.0 Unported | html5up.net | http://creativecommons.org/licenses/by/3.0/)
@@ -73,8 +73,8 @@
 		}
 
 	body, input, select, textarea {
-		color: #929292;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		color: #777;
+		font-family: "Nunito Sans", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
 		line-height: 1.75em;
@@ -97,7 +97,7 @@
 		}
 
 	strong, b {
-		color: #686868;
+		color: #333;
 		font-weight: 400;
 	}
 
@@ -110,7 +110,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #686868;
+		color: #333;
 		font-weight: 400;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -253,7 +253,7 @@
 	}
 
 	header.major h2 {
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 
 
@@ -565,7 +565,7 @@
 		background-color: transparent;
 		border-radius: 0.35em;
 		border: solid 3px #efefef;
-		color: #686868 !important;
+		color: #333 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
@@ -700,20 +700,21 @@
 			color: #ffffff;
 		}
 
-		#header h2, #header h3, #header h4, #header h5, #header h6 {
+		#header h1, #header h2, #header h3, #header h4 {
 			color: #ffffff;
 		}
 
 		#header h1 {
-			color: rgba(255, 255, 255, 0.6);
-			font-size: 1.35em;
+			font-size: 1.4em;
 			line-height: 1.75em;
 			margin: 0;
 		}
 
-		#header h1 strong {
+		#header h2 {
+			color: rgba(255, 255, 255, 0.6);
 			font-size: 1.2em;
 			line-height: 1.75em;
+			margin: 0;
 		}
 
 		#header .image.avatar {
@@ -786,7 +787,7 @@
 	#main {
 		margin-left: 30%;
 		/* max-width: 54em; */
-		padding: 6em 4em 4em 4em;
+		padding: 4em 4em 4em 4em;
 		width: calc(100% - 30%);
 	}
 
