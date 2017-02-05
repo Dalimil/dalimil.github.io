@@ -813,23 +813,12 @@
 
 	.project-details > h1 {
 		text-align: left;
+		display: inline-block;
 	}
 
 	.project-date {
 		float: right; 
 		margin-top: -5%;
-	}
-
-	.project-details.active-shadow > h1 {
-		text-shadow:1px 1px 60px #7070ff;   
-	}
-
-	.project-details:not(.active-shadow) > h1 {
-		-webkit-transition:text-shadow 0.8s linear;
-		-moz-transition:text-shadow 0.8s linear;
-		-o-transition:text-shadow 0.8s linear;
-		-ms-transition:text-shadow 0.8s linear;
-		transition:text-shadow 0.8s linear;  
 	}
 
 
@@ -994,6 +983,16 @@
   animation-fill-mode: both;
 }
 
+.animated.fast {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+.animated.slow {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1025,6 +1024,39 @@
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInUpAbs {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpAbs {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpAbs {
+  -webkit-animation-name: fadeInUpAbs;
+  animation-name: fadeInUpAbs;
 }
 
 @-webkit-keyframes fadeOutUp {
