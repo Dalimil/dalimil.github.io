@@ -20,7 +20,9 @@ function run() {
 
 		// Load CSS
 		const cssFilename = pp("build" + matchCss[1]);
-		const cssContent = fs.readFileSync(cssFilename, "utf8");
+		const rawCssContent = fs.readFileSync(cssFilename, "utf8");
+		const sourceMapSub = rawCssContent.match(/\n\/\*# sourceMapping[^\*]*\*\//g);
+		const cssContent = rawCssContent.replace(sourceMapSub, "");
 
 		// Inline CSS and move JS to head
 		const resultHtml = htmlContent.replace(matchJs[0], "")
