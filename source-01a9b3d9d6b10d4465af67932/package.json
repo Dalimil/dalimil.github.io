@@ -5,7 +5,7 @@
   "author": "Dalimil Hajek",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv ./build/* ../ && rmdir ./build"
+    "build": "react-scripts build && node afterbuild.js && cp -r ./build/* ../ && rm -r ./build"
   },
   "devDependencies": {
     "react-scripts": "^0.8.5"
