@@ -305,39 +305,23 @@
 
 		.image.thumb {
 			text-align: center;
+			-moz-transition: box-shadow 0.2s ease-in-out;
+			-webkit-transition: box-shadow 0.2s ease-in-out;
+			-ms-transition: box-shadow 0.2s ease-in-out;
+			transition: box-shadow 0.2s ease-in-out;
 		}
-
-			.image.thumb:after {
-				-moz-transition: opacity 0.2s ease-in-out;
-				-webkit-transition: opacity 0.2s ease-in-out;
-				-ms-transition: opacity 0.2s ease-in-out;
-				transition: opacity 0.2s ease-in-out;
-				border-radius: 0.35em;
-				border: solid 3px rgba(255, 255, 255, 0.5);
-				color: #fff;
-				content: 'View project';
-				display: inline-block;
-				font-size: 0.9em;
-				font-weight: 400;
-				left: 50%;
-				line-height: 2.25em;
-				margin: -1.25em 0 0 -4em;
-				opacity: 0;
-				padding: 0 1.5em;
-				position: absolute;
-				text-align: center;
-				text-decoration: none;
-				top: 50%;
-				white-space: nowrap;
+			.image.thumb:before {
+				background: rgba(0,0,0,0.1);
+				opacity: 1;
 			}
-
-			.image.thumb:hover:after {
-				opacity: 1.0;
-			}
-
 			.image.thumb:hover:before {
-				background: rgba(0,0,0,0.7);
-				opacity: 1.0;
+				opacity: 0;
+			}
+			.image.thumb {
+				box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			}
+			.image.thumb:hover {
+				box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 			}
 			.image.thumb:hover + h3 { /* Selects h3 project name (after) below image */
 				color: #ce493d;
