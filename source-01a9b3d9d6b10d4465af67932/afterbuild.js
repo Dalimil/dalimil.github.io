@@ -3,7 +3,7 @@ const path = require("path");
 const pp = s => path.join(__dirname, s);
 
 /** 
- * Inline CSS and Move the main.js <script> to head
+ * Inline CSS and Move the main.js <script> to the start of <body>
  */
 function run() {
 
@@ -24,9 +24,10 @@ function run() {
 		const sourceMapSub = rawCssContent.match(/\n\/\*# sourceMapping[^\*]*\*\//g);
 		const cssContent = rawCssContent.replace(sourceMapSub, "");
 
-		// Inline CSS and move JS to head
+		// Inline CSS and move JS to the start of <body>
 		const resultHtml = htmlContent.replace(matchJs[0], "")
-			.replace(matchCss[0], `<style>${cssContent}</style>${matchJs[0]}`);
+			.replace(matchCss[0], `<style>${cssContent}</style>`)
+			.replace("<body>", "<body>" + matchJs[0]);
 
 		// Save changes (overwrite)
 		fs.writeFileSync(htmlFilename, resultHtml);
