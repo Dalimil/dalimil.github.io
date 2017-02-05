@@ -1,0 +1,16 @@
+{
+  "name": "dalimil.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dalimil Hajek",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && mv ./build/* ../ && rmdir ./build"
+  },
+  "devDependencies": {
+    "react-scripts": "^0.8.5"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
