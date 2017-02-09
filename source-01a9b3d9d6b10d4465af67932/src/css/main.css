@@ -47,6 +47,10 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	a {
+		outline: 0;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -233,6 +237,24 @@
 
 	.project-row {
 		margin-bottom: 0.5em;
+	}
+
+	/* Project subnav */
+	#project-subnav {
+		width: 100%;
+		padding-left: 1em;
+		position: relative;
+		left: 1em;
+		opacity: 0;
+	}
+	.project-subnav-row {
+		display: flex;
+	}
+	.project-subnav-row > * {
+		margin: 0 0 10px 10px;
+	}
+	.project-subnav-row img {
+		width: 100%;
 	}
 
 /* Section/Article */
@@ -690,7 +712,7 @@
 		color: rgba(255, 255, 255, 0.7);
 		height:100%;
 		left: 0;
-		padding: 6em 4em 0 0;
+		padding: 5em 4em 0 1em;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -992,6 +1014,12 @@
   animation-duration: 2s;
 }
 
+.animated.fadeInUp50,
+.animated.fadeOutDown50 {
+  -webkit-animation-duration: .75s;
+	animation-duration: .75s;
+}
+
 
 @-webkit-keyframes fadeInUp {
   from {
@@ -1024,6 +1052,39 @@
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInUp50 {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp50 {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp50 {
+  -webkit-animation-name: fadeInUp50;
+  animation-name: fadeInUp50;
 }
 
 @-webkit-keyframes fadeInUpAbs {
@@ -1059,6 +1120,40 @@
   animation-name: fadeInUpAbs;
 }
 
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
 @-webkit-keyframes fadeOutUp {
   from {
     opacity: 1;
@@ -1088,6 +1183,63 @@
   animation-name: fadeOutUp;
 }
 
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+@-webkit-keyframes fadeOutDown50 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+@keyframes fadeOutDown50 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+.fadeOutDown50 {
+  -webkit-animation-name: fadeOutDown50;
+  animation-name: fadeOutDown50;
+}
 
 @-webkit-keyframes pulse {
   from {
@@ -1127,3 +1279,5 @@
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
+
+
