@@ -177,7 +177,15 @@ class App {
 			return false;
 		});
 
+		App.lastClickTime = null;
+
 		$('.scrolldown').click(function() {
+			// Prevent fast switching and double-clicks 
+			if (App.lastClickTime && App.lastClickTime + 800 > Date.now()) {
+				return false;
+			}
+			App.lastClickTime = Date.now();
+
 			/* First disable all */
 			$(".project-details").hide();
 
