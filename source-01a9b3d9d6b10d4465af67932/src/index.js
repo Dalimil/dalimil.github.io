@@ -155,7 +155,7 @@ class App {
 		} else {
 			// ----------- NOT MOBILE -------------
 			// Load particles
-			//App.initParticles();
+			App.initParticles();
 
 			// Header parallax + Subnav project menu toggle
 			const scrollController = new ScrollController();
