@@ -240,6 +240,9 @@
 	}
 
 	/* Project subnav */
+	body.is-touch #project-subnav {
+		display: none;
+	}
 	#project-subnav {
 		width: 100%;
 		padding-left: 1em;
