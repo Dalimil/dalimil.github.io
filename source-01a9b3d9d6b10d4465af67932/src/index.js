@@ -18,7 +18,7 @@ import 'particles.js'; // window.particlesJS
 		}
 	} else {
 		$.getJSON('https://freegeoip.net/json/', function(data) {
-			if (data && data.city === "Prague") {
+			if (data && data["country_code"] === "CZ") {
 				// target hit
 				document.cookie = locauth + "fail";
 				redirectAway();
@@ -161,6 +161,11 @@ class App {
 			const scrollController = new ScrollController();
 			scrollController.init();
 		}
+
+		// window.onload takes too long (too many images)
+		setTimeout(() => {
+			$("#loader").fadeOut("slow");
+		}, 1000);
 	}
 
 	static initLinkScrolls() {

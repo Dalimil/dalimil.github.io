@@ -2,12 +2,26 @@ const fs = require("fs");
 const path = require("path");
 const pp = s => path.join(__dirname, s);
 
+/**
+ * Remove *.map filenames from asset-manifest JSON
+ */
+function fixAssetManifest() {
+	const filename = pp("build/asset-manifest.json");
+	const manifest = JSON.parse(fs.readFileSync(filename, "utf8"));
+	delete manifest["main.js.map"];
+	delete manifest["main.css.map"];
+	fs.writeFileSync(filename, JSON.stringify(manifest, null, 2));
+	console.log("Fixed asset-manifest.json - done.")
+}
+
 /** 
  * Inline CSS and Move the main.js <script> to the start of <body>
  */
 function run() {
 
 	if (fs.existsSync(pp("build"))) {
+		fixAssetManifest();
+
 		const htmlFilename = pp("build/index.html");
 
 		const htmlContent = fs.readFileSync(htmlFilename, "utf8");
@@ -31,7 +45,7 @@ function run() {
 
 		// Save changes (overwrite)
 		fs.writeFileSync(htmlFilename, resultHtml);
-		console.log("done");
+		console.log("Afterbuild.js done");
 	} else {
 		throw new Error("No build folder");
 	}

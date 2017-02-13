@@ -1,3 +1,14 @@
+/* Loader overlay - parse first */
+#loader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(loader-2.gif) center no-repeat #fff;
+}
+
 @import url("font-awesome.min.css");
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,700');
 
@@ -712,7 +723,6 @@
 			color: #b2b2b2 !important;
 			cursor: default;
 		}
-
 
 /* Header */
 	.university-image {
