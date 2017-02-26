@@ -253,9 +253,6 @@
 	}
 
 	/* Project subnav */
-	body.is-touch #project-subnav {
-		display: none;
-	}
 	#project-subnav {
 		width: 100%;
 		padding-left: 1em;
@@ -956,6 +953,13 @@
 					#header h1 br {
 						display: inline;
 					}
+
+			#header .image.avatar {
+				display: inline-block;
+			}
+			#project-subnav {
+				display: none;
+			}
 
 		/* Footer */
 			#footer {
