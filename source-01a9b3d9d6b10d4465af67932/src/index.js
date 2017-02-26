@@ -65,6 +65,7 @@ class ScrollController {
 		this.triggerTolerance = 50;
 		this.collapseScrollTrigger = $(".project-details").offset().top - 100;
 		this.subnavShown = false;
+		this.scrollEventTimeout = null;
 		ScrollController.instance = this;
 	}
 
@@ -80,17 +81,28 @@ class ScrollController {
 				this.$header.css('background-position', 'top left, center center');
 			} else {
 				this.$header.css('background-position', 'left 0px');
-				this.$window.on('scroll.parallax_namespace', this.update.bind(this));
+
+				this.$window.on('scroll.parallax_namespace', () => {
+					if (!this.scrollEventTimeout) {
+						this.update(); // start animation on leading edge (because of click-jumps)
+						this.scrollEventTimeout = setTimeout(() => {
+							clearTimeout(this.scrollEventTimeout);
+							this.scrollEventTimeout = null;
+							this.update(); // since we may have missed it during those 400ms
+						}, 400);
+					}
+					// doing this on every scroll is performance-heavy, but parallax is cool...
+					this.$header.css(
+						'background-position',
+						'left ' + (-1 * this.$window.scrollTop() / this.parallaxFactor) + 'px'
+					);
+				});
 			}
 		});
 	}
 
 	update() {
 		const scrollTop = this.$window.scrollTop();
-		this.$header.css(
-			'background-position',
-			'left ' + (-1 * scrollTop / this.parallaxFactor) + 'px'
-		);
 		if (!this.subnavShown && scrollTop > this.collapseScrollTrigger + this.triggerTolerance) {
 			this.showSubnav();
 		} else if (this.subnavShown && scrollTop < this.collapseScrollTrigger - this.triggerTolerance) {
@@ -111,12 +123,12 @@ class ScrollController {
 	}
 
 	toggleAvatar(show) {
-		const slideDelay = 250;
+		const slideDelay = 200;
 		if (show) {
 			// Expand space first
 			this.$avatar.css("opacity", "0").removeClass("fadeOutUp").animate({ height: 'toggle' });
 			setTimeout(() => {
-				this.$avatar.addClass("fadeInDown");
+				this.$avatar.css("opacity", "").addClass("fadeInDown");
 			}, 150);
 		} else {
 			setTimeout(() => {
@@ -169,14 +181,25 @@ class App {
 	}
 
 	static initLinkScrolls() {
+		const $header = $('#header');
+		const applyPreJumpHeaderFix = () => {
+			if (!skel.vars.mobile) {
+				$header.css("transition", "background-position 0.5s ease-in-out");
+				setTimeout(() => {
+					$header.css("transition", "");
+				}, 1000);
+			}
+		};
+
 		$('.scrollup').click(function () {
 			/* FadeIn all thumbs */
 			const $projectThumbs = $("#projects article");
 			$projectThumbs.each(function(index, element) {
 				$(element).animateCss("fadeInUp");
 			});
+			applyPreJumpHeaderFix();
 			window.scrollTo(0, $("#projects").offset().top);
-
+		
 			/* Enable all */
 			$(".project-details").show();
 			return false;
@@ -197,6 +220,7 @@ class App {
 			const $projectSection = $($(this).attr("href"));
 			/* Enable only this one */
 			$projectSection.show();
+			applyPreJumpHeaderFix();
 			window.scrollTo(0, $projectSection.offset().top);
 
 			$projectSection.animateCss("fadeInUpAbs");
