@@ -771,8 +771,12 @@
 		}
 
 		#header .image.avatar {
-			margin: 0 0 1em 0;
+			display: block; /* Otherwise the height:toggle animation will jerk */
+			margin: 0 0 0 auto; /* Same as above */
 			width: 7em;
+		}
+		#header .image.avatar + h1 {
+			margin-top: 0.6em; /* set margin below the image */
 		}
 
 /* Particles - matches header dimensions*/
