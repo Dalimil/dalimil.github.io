@@ -255,6 +255,7 @@
 	/* Project subnav */
 	#project-subnav {
 		width: 100%;
+		padding-top: 0.5em;
 		padding-left: 1em;
 		position: relative;
 		left: 1em;
@@ -790,7 +791,7 @@
 	#footer {
 		bottom: 0;
 		left: 0;
-		padding: 0 4em 4em 0;
+		padding: 0 4em 2em 0;
 		position: fixed;
 		text-align: right;
 		width: 30%;

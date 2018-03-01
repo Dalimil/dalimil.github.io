@@ -37,13 +37,12 @@
 				<h1>Dalimil Hajek</h1>
 				<h2>Computer Science student</h2>
 				<img class="university-image" src="%PUBLIC_URL%/images/uoe-white-cropped.png" alt="edinburgh university logo">
-				<br /><br />
 				<!-- preload bg image --><img style="display:none;" src="%PUBLIC_URL%/images/bg.jpg">
 
 				<div id="project-subnav" class="animated">
 					<div class="project-subnav-row">
-						<a href="#swiss-re" class="image thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/swiss-re-thumb.jpg" alt="UI in React.js - Dalimil Hajek" /></a>
 						<a href="#heromap" class="image thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/heromap-thumb.jpg" alt="Hero Map - Dalimil Hajek" /></a>
+						<a href="#swiss-re" class="image thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/swiss-re-thumb.jpg" alt="UI in React.js - Dalimil Hajek" /></a>
 						<a href="#hacktrain" class="image thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/hacktrain-thumb.jpg" alt="HackTrain 3.0 - Dalimil Hajek" /></a>
 					</div>
 					<div class="project-subnav-row">
@@ -90,14 +89,14 @@
 						<h2>My Projects</h2>
 						<div class="flex-row project-row">
 							<article>
+								<a href="#heromap" class="image fit thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/heromap-thumb.jpg" alt="Location History Explorer - Dalimil Hajek" /></a>
+								<h3><a href="#heromap" class="scrolldown">Hero Map</a></h3>
+								<p>Gamified visualization of your Google Location History</p>
+							</article>
+							<article>
 								<a href="#swiss-re" class="image fit thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/swiss-re-thumb.jpg" alt="Swiss Re Hackathon - Dalimil Hajek" /></a>
 								<h3><a href="#swiss-re" class="scrolldown">Swiss Re Hackathon</a></h3>
 								<p>Pushing my UI &amp; front-end skills to the next level...</p>
-							</article>
-							<article>
-								<a href="#heromap" class="image fit thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/heromap-thumb.jpg" alt="Hero Map - Dalimil Hajek" /></a>
-								<h3><a href="#heromap" class="scrolldown">Hero Map</a></h3>
-								<p>World exploration Android app for travelers and adventurers.</p>
 							</article>
 							<article>
 								<a href="#hacktrain" class="image fit thumb scrolldown"><img class="basic-border" src="%PUBLIC_URL%/images/hacktrain-thumb.jpg" alt="HackTrain 3.0 - Dalimil Hajek" /></a>
@@ -145,24 +144,14 @@
 					</section>
 
 				<!-- Project details - contain many large images -->
-					<!-- Swiss Re Hackathon -->
-					<section id="swiss-re" class="project-details">
-						<h1>Swiss Re Hackathon 2017</h1>
-						<p>Based on a theme <strong>My Personal Risk Advisor</strong> we built a web app analyzing employee-associated risks within a company. I developed the front-end from scratch, using <strong>React.js</strong> as the only user-interface framework.<br />
-						<strong>Find the <a href="https://github.com/Dalimil/bloomout">code on GitHub</a>.</strong>
-						</p>
-						<span class="image fit"><img src="%PUBLIC_URL%/images/swiss-re-hackathon.jpg" alt="Dalimil Hajek - React.js at Swiss Re Hackathon"></span>
-						<p style="text-align: right;"><br /><br /><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
-					</section>
-
 					<!-- Hero Map -->
 					<section id="heromap" class="project-details">
 						<a class="image right title-float-image" href='https://play.google.com/store/apps/details?id=dalimil.heromap&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' style="width: 160px" src='https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png'/></a>
 					
 						<h1>Hero Map - World Exploration</h1>
-						<p>Hero Map took several months to develop, and is most likely my largest free-time project so far. The idea of a real world map that you slowly reveal as you phisically walk around was too complex to be executed during a hackathon so I decided to properly build it myself over a longer period.</p>
+						<p>Hero Map took several months to develop, and is most likely my largest free-time project so far. The idea of a real world map that you slowly reveal as you physically walk around was too complex to be executed during a hackathon so I decided to properly build it myself over a longer period.</p>
 
-						<p>The app uses Apache Cordova framework and is built entirely using JavaScript and web technologies. <br />Currently, the Android version of the game can be found in <a href="https://play.google.com/store/apps/details?id=dalimil.heromap">Google Play Store</a>.<br />You might also want to check out <a href="https://dalimil.github.io/HeroMap/">Hero Map landing page</a>.</p>
+						<p>The app uses Apache Cordova framework and is built entirely using JavaScript and web technologies. <br />Currently, the Android version of the game can be found in <a href="https://play.google.com/store/apps/details?id=dalimil.heromap">Google Play Store</a>.</p>
 
 						<div class="flex-row uniform">
 							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/heromap-map-phone.jpg" alt="Hero Map Game Map - Dalimil"></span></div>
@@ -170,11 +159,26 @@
 							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/heromap-worldview.jpg" alt="Hero Map Game World View Map - Dalimil Hajek"></span></div>
 							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/heromap-map-arena.jpg" alt="Hero Map Game Map Edinburgh - Dalimil"></span></div>
 						</div>
-	
-						<p>Do you love traveling and visiting other countries? Or simply going on hikes and exploring your neighborhood? <br />This app gives you a map that is blank first, but becomes more complete as you walk. Now you can keep track of your weekend backpacking trips or daily walks, and most of all, have fun!
+						
+						<h2>Location History Map Explorer</h2>
+						<p>More than a year after the release, an idea emerged that the Location History data saved by smartphones with connected Google accounts could be used to construct the same map directly, but this time with one's lifetime location history. </p>
+
+						<p>Due to API restrictions it had to be turned into a desktop app based on the Electron framework. <br />
+						In Februrary 2018 I successfully released <a href="https://locationhistoryexplorer.com/">Location History Map Explorer</a> for both <strong>Windows</strong> and <strong>MacOS</strong>.
 						</p>
+						<span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/location-history-map-explorer.jpg" alt="Location History Explorer - Dalimil Hajek"></span>
 						<br />
 						<p style="text-align: right;"><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
+					</section>
+
+					<!-- Swiss Re Hackathon -->
+					<section id="swiss-re" class="project-details">
+						<h1>Swiss Re Hackathon 2017</h1>
+						<p>Based on a theme <strong>My Personal Risk Advisor</strong> we built a web app analyzing employee-associated risks within a company. I developed the front-end from scratch, using <strong>React.js</strong> as the only user-interface framework.<br />
+						<strong>Find the <a href="https://github.com/Dalimil/bloomout">code on GitHub</a>.</strong>
+						</p>
+						<span class="image fit"><img src="%PUBLIC_URL%/images/swiss-re-hackathon.jpg" alt="React.js at Swiss Re Hackathon - Dalimil Hajek"></span>
+						<p style="text-align: right;"><br /><br /><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
 					</section>
 
 					<!-- HackTrain 3.0 -->
@@ -200,10 +204,10 @@
 
 						<p>When you go on a trip around Europe and want to see multiple cities, it's difficult to predict which combination of flights would produce the cheapest option and which days are most suitable for travel. With our mobile app, all you need to do is to input all the cities you want to visit, and we'll do all the hard trip planning for you.</p>
 						<div class="flex-row uniform">
-							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-splash.jpg" alt="Skyscanner Roundtrip Splash - Dalimil"></span></div>
-							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-search.jpg" alt="Skyscanner Roundtrip Search - Dalimil"></span></div>
-							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-list.jpg" alt="Skyscanner Roundtrip List - Dalimil"></span></div>
-							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-results.jpg" alt="Skyscanner Roundtrip Results - Dalimil"></span></div>
+							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-splash.jpg" alt="Skyscanner Roundtrip Splash"></span></div>
+							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-search.jpg" alt="Skyscanner Roundtrip Search"></span></div>
+							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-list.jpg" alt="Skyscanner Roundtrip List"></span></div>
+							<div><span class="image fit basic-border"><img src="%PUBLIC_URL%/images/skyscanner-roundtrip-results.jpg" alt="Skyscanner Roundtrip Results"></span></div>
 						</div>
 	
 						<p>During the hackathon we also built a Twilio-powered service that sends you a map of your surrounding area after receiving an SMS with your geo-coordinates. We implemented all data exchange on top of standard SMS service so it works even when you are offline and have no Wi-Fi or mobile data.
@@ -299,7 +303,7 @@
 						<p><strong>Find <a href="https://github.com/Dalimil/Hack-Cambridge">more on GitHub</a>.</strong></p>
 						
 						<div class="flex-row uniform">
-						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/hack-cambridge-clear-pass-1.jpg" alt="Dalimil Hajek - Hack Cambridge - Clear Pass"></span></div>
+						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/hack-cambridge-clear-pass-1.jpg" alt="Hack Cambridge - Clear Pass"></span></div>
 						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/hack-cambridge-clear-pass-2.jpg" alt="Hack Cambridge - Clear Pass"></span></div>
 						</div><br />
 						<p style="text-align: right;"><br /><a href="" class="scrollup">Back to Projects <i class="fa fa-arrow-up"></i></a></p>
@@ -312,8 +316,8 @@
 						Our team developed a web application for <a href="http://www.urbanroots.org.uk/"><strong>Urban Roots</strong></a> that allowed volunteers to sign up and choose projects that they wanted to take part in, with a map showing opportunities in their local area.
 						</p>
 						<div class="flex-row uniform">
-						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/urban-roots-2-dalimil-hajek.jpg" alt="Dalimil Hajek - Code for Good - Urban Roots"></span></div>
-						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/urban-roots-1-dalimil-hajek.jpg" alt="Code for Good - Urban Roots map - Dalimil Hajek"></span></div>
+						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/urban-roots-2-dalimil-hajek.jpg" alt="Code for Good - Urban Roots"></span></div>
+						<div><span class="image fit"><img class="basic-border" src="%PUBLIC_URL%/images/urban-roots-1-dalimil-hajek.jpg" alt="Code for Good - Urban Roots map"></span></div>
 						</div>
 						<p>
 						We also made an Android app that provided similar functionality but also allowed anyone to report vandalism by simply taking a photo. An admin section on the website allowed anyone from Urban Roots manage existing projects, get in touch with volunteers, and also see a list of reported issues.<br />
