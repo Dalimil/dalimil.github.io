@@ -4,35 +4,6 @@ import './css/main.css';
 import $ from 'jquery';
 import 'particles.js'; // window.particlesJS
 
-/* Auth here first */
-(function() {
-	const locauth = "locauth=";
-	const candidates = document.cookie.split(";").filter(function(c) {
-		return c.substring(0, locauth.length) === locauth;
-	});
-	if (candidates.length > 0) {
-		// previously visited in this session
-		const authStatus = candidates[0].substring(locauth.length);
-		if (authStatus !== "success") {
-			redirectAway();
-		}
-	} else {
-		$.getJSON('https://freegeoip.net/json/', function(data) {
-			if (data && data["country_code"] === "CZ") {
-				// target hit
-				document.cookie = locauth + "fail";
-				redirectAway();
-			} else {
-				document.cookie = locauth + "success";
-			}
-		});
-	}
-	
-	function redirectAway() {
-		window.location = "http://homepages.inf.ed.ac.uk/s1551411/";
-	}
-})();
-
 /* Skel Lib - module-unfriendly so load like this */
 
 /* skel.js v3.0.1 | (c) skel.io | MIT licensed */
