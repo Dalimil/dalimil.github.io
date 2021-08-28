@@ -1,7 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { FC } from 'react';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
-export default MyApp
+import 'styles/globals.scss';
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
+};
+export default MyApp;

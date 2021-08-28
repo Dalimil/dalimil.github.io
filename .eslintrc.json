@@ -17,8 +17,9 @@
     "next/core-web-vitals",
     "plugin:prettier/recommended" // keep this entry last to avoid rule clashes
   ],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "rules": {
+    "@typescript-eslint/no-var-requires": "off", // so that *.js files can require() node modules
     "react-hooks/exhaustive-deps": "warn",
     "simple-import-sort/imports": [
       "warn",

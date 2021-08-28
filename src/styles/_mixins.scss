@@ -1,0 +1,55 @@
+$phone-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/**
+ * Use like this:
+    @import 'mixins';
+
+    @include mobile {
+      .logo {
+        flex-direction: 'column' <- for example
+      }
+    }
+ */
+@mixin mobile {
+  // < 768px
+  @media screen and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  // 768px <=  ... <= 1024px
+  @media screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin mobileOrTablet {
+  // <= 1024px
+  @media screen and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  // > 1024px
+  @media screen and (min-width: #{$desktop-width + 1px}) {
+    @content;
+  }
+}
+
+// custom breakpoint to only target screens smaller than width
+@mixin max-media($max-width) {
+  @media screen and (max-width: #{$max-width}) {
+    @content;
+  }
+}
+
+// custom breakpoint to only target screens larger than width
+@mixin min-media($min-width) {
+  @media screen and (min-width: #{$min-width}) {
+    @content;
+  }
+}
