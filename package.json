@@ -2,12 +2,18 @@
   "name": "dali-portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "Repository containing Dalimil Hajek's portfolio website.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=14.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "sideEffects": false,
   "dependencies": {
     "next": "11.1.0",
     "react": "17.0.2",
@@ -15,8 +21,14 @@
   },
   "devDependencies": {
     "@types/react": "17.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.3.2",
+    "sass": "^1.38.2",
     "typescript": "4.4.2"
   }
 }

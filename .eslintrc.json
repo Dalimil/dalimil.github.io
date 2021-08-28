@@ -1,3 +1,51 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "globals": {},
+  "extends": [
+    // The order here is important because of overwrites!
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    /**
+     * Next config extends plugins:
+     * 'plugin:react/recommended',
+     * 'plugin:react-hooks/recommended',
+     * 'plugin:@next/next/recommended',
+     * and a few rules from: 'import', 'react', 'jsx-a11y'
+     * Next eslint config already handles setting default values for the parser, parserOptions, and settings properties.
+     * There is no need to manually re-declare any of these properties unless you need a different configuration for your use case.
+     */
+    "next/core-web-vitals",
+    "plugin:prettier/recommended" // keep this entry last to avoid rule clashes
+  ],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // Side effect imports.
+          ["^\\u0000"],
+          // External packages
+          ["^@?\\w"],
+          // Internal packages and parent packages
+          [
+            "^(@|components|constants|hooks|layouts|modules|pages|queries|styles|types|utils|public|src)(/.*|$)",
+            "^",
+            "^\\."
+          ],
+          // Style imports.
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": "error",
+    /* ESlint rules not included in eslint:recommended by default */
+    "no-duplicate-imports": "warn",
+    "no-unneeded-ternary": "error", // Disallow a === b ? true : false
+    "no-plusplus": "error", // Disallow a[i++] = x, loops should be replaced by for..of or forEach
+    "camelcase": "error", // Disallow const my_variable_one = 5;
+    "no-nested-ternary": "error", // Disallow a ? b : c ? e : 1,
+    "no-else-return": "warn" // Disallow if (x) { return <div />; } else { code(); } - else block redundant
+  }
 }
