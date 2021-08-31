@@ -1,31 +1,76 @@
-import { FC } from 'react';
+import { CSSProperties, FC, useCallback, useState } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
 import { Footer } from './Footer';
 
 import styles from './Home.module.scss';
 
+const sites = [
+  {
+    title: 'Career',
+    className: styles.career,
+    imgUrl: '/images/dali-career-profile.jpg',
+    imgAlt: 'Dalimil Hajek career profile photo',
+    adds: [{ name: 'MS' }],
+    urlLink: '/career',
+  },
+  {
+    title: 'Photography',
+    className: styles.photography,
+    imgUrl: '/images/dali-photography-profile.jpg',
+    imgAlt: 'Dalimil Hajek photography profile photo',
+    urlLink: 'https://dali-media.web.app/',
+  },
+  {
+    title: 'University',
+    className: styles.university,
+    imgUrl: '/images/dali-university-profile.jpg',
+    imgAlt: 'Dalimil Hajek profile photo from university years',
+    urlLink: 'https://dalimil.github.io/',
+  },
+];
+
 export const Home: FC = () => {
+  const [pressed, setPressed] = useState<number | undefined>(undefined);
+  const [mouse, setMouse] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  // Shine effect variables
+  const onMouseMove = useCallback((e) => {
+    setMouse({ x: e.pageX, y: e.pageY });
+  }, []);
+
   return (
     // We place the navigation and footer in main because it's the main
     // content of the home page, rather than something that's across all sites.
-    <main className={styles.root}>
-      <h2 className="screen-reader-text">Select one of the following links to reach the right section.</h2>
-      <div className={styles.links} role="region">
-        <a className={concatClasses(styles.link, styles.career)} href="#">
-          <h2 className="screen-reader-text">Career</h2>
-          <div className={styles.add}>Twitter</div>
-          <img src="/images/dali-career-profile.jpg" alt="Dalimil Hajek career profile photo" />
-        </a>
-        <a className={concatClasses(styles.link, styles.photography)} href="https://dali-media.web.app/">
-          <h2 className="screen-reader-text">Photography</h2>
-          <img src="/images/dali-photography-profile.jpg" alt="Dalimil Hajek photography profile photo" />
-        </a>
-        <a className={concatClasses(styles.link, styles.university)} href="https://dalimil.github.io/">
-          <h2 className="screen-reader-text">University</h2>
-          <img src="/images/dali-university-profile.jpg" alt="Dalimil Hajek profile photo from university years." />
-        </a>
-      </div>
+    <main
+      className={styles.root}
+      onMouseMove={onMouseMove}
+      onClick={() => setPressed(undefined)}
+      style={{ '--x': `${mouse.x}px`, '--y': `${mouse.y}px` } as CSSProperties}
+    >
+      <section className={styles.sites} aria-labelledby="main-section">
+        <h2 id="main-section" className="screen-reader-text">
+          List of Dali&apos;s portfolio sites.
+        </h2>
+        {sites.map((site, index) => (
+          <button
+            key={site.className}
+            aria-pressed={pressed === index}
+            onClick={(e) => {
+              setPressed(pressed === index ? undefined : index);
+              e.stopPropagation();
+            }}
+            className={concatClasses(styles.site, site.className, pressed === index && styles.pressed)}
+          >
+            {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
+            <div className={styles.cardBox} aria-hidden="true">
+              <div className={styles.cardBackground} />
+            </div>
+            <img src={site.imgUrl} alt={site.imgAlt} />
+            <h2>{site.title}</h2>
+            <p>Hello hello</p>
+          </button>
+        ))}
+      </section>
       <Footer />
     </main>
   );
