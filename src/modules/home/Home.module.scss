@@ -55,7 +55,8 @@
         filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
         .cardBox {
           .cardBackground {
-            transform: translateY(-32px) scale(6);
+            // transform: translateY(-32px) scale(6);
+            transform: scale(6);
           }
         }
         img {
