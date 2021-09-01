@@ -1,5 +1,8 @@
 @import 'mixins';
 
+$dark-text-color: #686868;
+$light-text-color: #fff;
+
 .root {
   position: relative;
   background: linear-gradient(135deg, #e2a9e5 15%, #2b94e5 100%);
@@ -35,6 +38,7 @@
     align-items: center;
     z-index: 1;
 
+    $first-animation-length: 0.3s;
     .site {
       @include reset-button;
       cursor: pointer;
@@ -49,9 +53,9 @@
       align-items: center;
       flex-shrink: 0;
 
-      transition: filter ease 1s;
-      transition-delay: 0.32s;
-      &.pressed {
+      transition: filter ease 0.7s;
+      transition-delay: $first-animation-length;
+      &[aria-pressed='true'] {
         filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
         .cardBox {
           .cardBackground {
@@ -60,7 +64,7 @@
           }
         }
         img {
-          transform: translateY(-48px) scale(0.5);
+          transform: translateY(-50%) scale(0.5);
         }
         h2 {
           opacity: 0;
@@ -68,6 +72,8 @@
         }
         p {
           opacity: 1;
+          // Add the delay only for pressed (fade-in) instead of both directions:
+          transition-delay: $first-animation-length;
         }
       }
       .cardBox {
@@ -92,8 +98,7 @@
           border: 1px solid rgba(225, 227, 232, 0.18);
           box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
           background-color: #fff;
-          transition: all 0.6s ease;
-          transition-delay: 0.32s;
+          transition: all 0.4s ease;
           will-change: transform;
         }
       }
@@ -103,7 +108,7 @@
         height: 100%;
         border-radius: 50%;
         opacity: 0.3;
-        transition: all 0.6s ease;
+        transition: all $first-animation-length ease;
         will-change: transform;
       }
       h2 {
@@ -111,7 +116,7 @@
         text-align: center;
         position: absolute;
         bottom: -30px;
-        color: #fff;
+        color: $light-text-color;
         font-weight: normal;
         font-size: 18px;
         transition: all 0.4s ease;
@@ -123,8 +128,8 @@
         text-align: center;
         top: 50%;
         opacity: 0;
-        transition: all 0.3s ease;
-        transition-delay: 0.32s;
+        transition: all 0.25s ease-in;
+        color: $dark-text-color;
       }
       &.career {
         order: 2;
@@ -161,7 +166,7 @@
         background: red;
         transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
       }
-      &.pressed {
+      &[aria-pressed='true'] {
         .add {
           transform: translate(80px, 35px) scale(1.2);
         }

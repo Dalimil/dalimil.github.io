@@ -59,7 +59,7 @@ export const Home: FC = () => {
               setPressed(pressed === index ? undefined : index);
               e.stopPropagation();
             }}
-            className={concatClasses(styles.site, site.className, pressed === index && styles.pressed)}
+            className={concatClasses(styles.site, site.className)}
           >
             {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
             <div className={styles.cardBox} aria-hidden="true">
