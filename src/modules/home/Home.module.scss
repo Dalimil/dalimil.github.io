@@ -49,9 +49,11 @@
       align-items: center;
       flex-shrink: 0;
 
+      transition: filter ease 1s;
+      transition-delay: 0.32s;
       &.pressed {
+        filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
         .cardBox {
-          box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
           .cardBackground {
             transform: translateY(-32px) scale(6);
           }
@@ -77,12 +79,14 @@
         justify-content: center;
         align-items: center;
         border-radius: 3px;
+        // heptagon: clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+        // pentagon: clip-path polygon: clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
         overflow: hidden;
-        transition: box-shadow ease 1s;
-        transition-delay: 0.32s;
+
         .cardBackground {
-          width: 80px;
-          height: 80px;
+          width: 50px;
+          height: 50px;
           border-radius: 100%;
           border: 1px solid rgba(225, 227, 232, 0.18);
           box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
@@ -138,10 +142,12 @@
         transform: translateY(50px);
       }
 
-      transition: 0.5s;
+      // Mouse and focus only. Will have no effect on mobile.
       &:hover,
       &:focus {
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        &:not(.pressed) {
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
       }
 
       /// the little add things
@@ -154,10 +160,9 @@
         background: red;
         transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
       }
-      &:hover {
-        //transform: scale(1.05);
+      &.pressed {
         .add {
-          transform: scale(1.2) translate(25px, 15px);
+          transform: translate(80px, 35px) scale(1.2);
         }
       }
       ////////////
