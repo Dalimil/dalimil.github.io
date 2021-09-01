@@ -1,7 +1,20 @@
+@use 'sass:math';
 @import 'mixins';
 
 $dark-text-color: #686868;
 $light-text-color: #fff;
+$link-color: #4c8bf5;
+
+@mixin abs-centered {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .root {
   position: relative;
@@ -57,11 +70,8 @@ $light-text-color: #fff;
       transition-delay: $first-animation-length;
       &[aria-pressed='true'] {
         filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
-        .cardBox {
-          .cardBackground {
-            // transform: translateY(-32px) scale(6);
-            transform: scale(6);
-          }
+        .cardBox .cardBackground {
+          transform: scale(6);
         }
         img {
           transform: translateY(-50%) scale(0.5);
@@ -74,17 +84,32 @@ $light-text-color: #fff;
           opacity: 1;
           // Add the delay only for pressed (fade-in) instead of both directions:
           transition-delay: $first-animation-length;
+          .innerLink {
+            pointer-events: auto;
+          }
+        }
+        .sprites {
+          // little dots that fly out in a circle
+          $circle-size: 1000%;
+          $dot-count: 30; // should match the element count rendered (can't use css vars here)
+          $step: math.div(360deg, $dot-count);
+          @for $i from 1 through $dot-count {
+            $angle: $i * $step;
+            .sprite:nth-child(#{$i}) {
+              opacity: 1;
+              background-color: scale-color(
+                $link-color,
+                $lightness: math.min(100%, math.max(0%, 50% - math.cos($angle * 2) * 50%))
+              );
+              transform: translate(math.cos($angle) * $circle-size, math.sin($angle) * $circle-size);
+              // row rollout: transition-delay: 20ms * $i;
+              transition-delay: 20ms * $i * math.log(math.tan($angle));
+            }
+          }
         }
       }
       .cardBox {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include abs-centered;
         border-radius: 3px;
         // heptagon: clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
         // pentagon: clip-path polygon: clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
@@ -94,12 +119,24 @@ $light-text-color: #fff;
         .cardBackground {
           width: 50px;
           height: 50px;
-          border-radius: 100%;
+          border-radius: 50%;
           border: 1px solid rgba(225, 227, 232, 0.18);
           box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
           background-color: #fff;
           transition: all 0.4s ease;
           will-change: transform;
+        }
+      }
+      .sprites {
+        @include abs-centered;
+        .sprite {
+          width: 6%;
+          height: 6%;
+          border-radius: 50%;
+          transition: all 0.4s ease;
+          will-change: transform, transition-delay, opacity, background-color;
+          position: absolute;
+          opacity: 0;
         }
       }
       img {
@@ -126,10 +163,22 @@ $light-text-color: #fff;
         left: 0;
         right: 0;
         text-align: center;
-        top: 50%;
+        top: 34%;
         opacity: 0;
         transition: all 0.25s ease-in;
         color: $dark-text-color;
+
+        .innerLink {
+          pointer-events: none;
+          margin: 8px 0;
+          color: $link-color;
+          text-decoration: none;
+          &:hover,
+          &:focus {
+            color: lighten($link-color, 10%);
+            text-decoration: underline dotted;
+          }
+        }
       }
       &.career {
         order: 2;
@@ -156,7 +205,7 @@ $light-text-color: #fff;
         }
       }
 
-      /// the little add things
+      /// the little add things, maybe just attach them as badges
       .add {
         position: absolute;
         top: 0px;
@@ -166,11 +215,11 @@ $light-text-color: #fff;
         background: red;
         transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
       }
-      &[aria-pressed='true'] {
-        .add {
-          transform: translate(80px, 35px) scale(1.2);
-        }
-      }
+      // &[aria-pressed='true'] {
+      //   .add {
+      //     transform: translate(80px, 35px) scale(1.2);
+      //   }
+      // }
       ////////////
     }
   }
