@@ -112,7 +112,7 @@ $link-color: #4c8bf5;
               // Transform - to spread out the initial dots in a circle
               transform: $translated-position;
               // Animation - to keep them going back and forth later (with randomly delayed-start)
-              animation: fluidity#{$i} 4s ease alternate infinite #{math.random(16000)}ms;
+              animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms;
               // row rollout: transition-delay: 20ms * $i;
               transition-delay: 20ms * $i * math.log(math.tan($angle));
             }
