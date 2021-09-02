@@ -16,6 +16,12 @@ $link-color: #4c8bf5;
   align-items: center;
 }
 
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
 .root {
   position: relative;
   background: linear-gradient(135deg, #e2a9e5 15%, #2b94e5 100%);
@@ -90,22 +96,54 @@ $link-color: #4c8bf5;
         }
         .sprites {
           // little dots that fly out in a circle
-          $circle-size: 1000%;
+          $circle-size: 1500%;
           $dot-count: 30; // should match the element count rendered (can't use css vars here)
           $step: math.div(360deg, $dot-count);
           @for $i from 1 through $dot-count {
             $angle: $i * $step;
+            $translated-position: translate(math.cos($angle) * $circle-size, math.sin($angle) * $circle-size);
+
             .sprite:nth-child(#{$i}) {
               opacity: 1;
               background-color: scale-color(
                 $link-color,
                 $lightness: math.min(100%, math.max(0%, 50% - math.cos($angle * 2) * 50%))
               );
-              transform: translate(math.cos($angle) * $circle-size, math.sin($angle) * $circle-size);
+              // Transform - to spread out the initial dots in a circle
+              transform: $translated-position;
+              // Animation - to keep them going back and forth later (with randomly delayed-start)
+              animation: fluidity#{$i} 4s ease alternate infinite #{math.random(16000)}ms;
               // row rollout: transition-delay: 20ms * $i;
               transition-delay: 20ms * $i * math.log(math.tan($angle));
             }
+            // Alternative would be getting rid of fluidity and just speed up and slow down the rotation
+            // animation alone (using animation spin keyframes unevenly spaced out).
+            @keyframes fluidity#{$i} {
+              // To insert spaces in between the infinite animation iterations, we need to space-out
+              // the keyframes themselves. E.g. 0-75% out, 10% for transition itself, and 15% time inside.
+              0% {
+                transform: $translated-position;
+              }
+              30% {
+                transform: $translated-position;
+              }
+              50% {
+                $fly-away-factor: 1.3;
+                // Same formula, just bigger multiplier
+                transform: translate(
+                  math.cos($angle) * $circle-size * $fly-away-factor,
+                  math.sin($angle) * $circle-size * $fly-away-factor
+                );
+              }
+              70% {
+                transform: $translated-position;
+              }
+              100% {
+                transform: $translated-position;
+              }
+            }
           }
+          animation: spin 24s linear infinite;
         }
       }
       .cardBox {

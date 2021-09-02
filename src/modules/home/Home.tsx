@@ -79,15 +79,15 @@ export const Home: FC = () => {
               className={concatClasses(styles.site, site.className)}
               aria-labelledby={titleId}
             >
-              {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
-              <div className={styles.cardBox} aria-hidden="true">
-                <div className={styles.cardBackground} />
-              </div>
               <div className={styles.sprites} aria-hidden="true">
                 {[...Array(spriteCount)].map((_, i) => (
                   <div key={i} className={styles.sprite} />
                 ))}
               </div>
+              <div className={styles.cardBox} aria-hidden="true">
+                <div className={styles.cardBackground} />
+              </div>
+              {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
               <img src={site.imgUrl} alt={site.imgAlt} />
               <h2 id={titleId}>{site.title}</h2>
               <p aria-hidden={!isSelected}>
