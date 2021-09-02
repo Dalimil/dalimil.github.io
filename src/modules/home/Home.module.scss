@@ -114,7 +114,9 @@ $link-color: #4c8bf5;
               // Animation - to keep them going back and forth later (with randomly delayed-start)
               animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms;
               // row rollout: transition-delay: 20ms * $i;
-              transition-delay: 20ms * $i * math.log(math.tan($angle));
+              $stepMs: 50;
+              transition-delay: #{($stepMs * $i) % ($stepMs * math.div($dot-count, 4))}ms;
+              //transition-delay: #{$stepMs * $i * math.tan($angle)}ms;
             }
             // Alternative would be getting rid of fluidity and just speed up and slow down the rotation
             // animation alone (using animation spin keyframes unevenly spaced out).
@@ -143,7 +145,7 @@ $link-color: #4c8bf5;
               }
             }
           }
-          animation: spin 24s linear infinite;
+          animation: spin 24s linear infinite $first-animation-length;
         }
       }
       .cardBox {
