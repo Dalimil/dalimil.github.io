@@ -71,7 +71,7 @@ export const Home: FC = () => {
           return (
             <button
               key={site.className}
-              aria-pressed={isSelected}
+              aria-expanded={isSelected}
               onClick={(e) => {
                 setPressed(isSelected ? undefined : site.id);
                 e.stopPropagation();
