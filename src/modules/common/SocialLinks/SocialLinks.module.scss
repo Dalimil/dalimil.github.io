@@ -30,7 +30,7 @@ $app-color: #4c8bf5;
   }
 
   &::after {
-    content: '';
+    content: attr(data-title);
     position: absolute;
     left: 0;
     right: 0;
@@ -38,17 +38,5 @@ $app-color: #4c8bf5;
     text-align: center;
     font-size: 0.65rem;
     text-transform: none;
-  }
-  &.linkedIn::after {
-    content: 'LinkedIn';
-  }
-  &.github::after {
-    content: 'GitHub';
-  }
-  &.instagram::after {
-    content: 'Instagram';
-  }
-  &.email::after {
-    content: 'Email';
   }
 }

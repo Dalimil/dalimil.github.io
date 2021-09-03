@@ -8,9 +8,14 @@ import styles from './Header.module.scss';
 export const Header: FC = () => {
   return (
     <header className={styles.root}>
-      <Link href="/">
-        <a className={styles.back}>🡐</a>
-      </Link>
+      <nav>
+        <Link href="/">
+          <a className={styles.back}>
+            <span aria-hidden="true">🡐 </span>
+            <span className="screen-reader-text">Return to home page</span>
+          </a>
+        </Link>
+      </nav>
       <div className={styles.links}>
         <SocialLinks linkClassName={styles.link} />
       </div>

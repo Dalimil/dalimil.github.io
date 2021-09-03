@@ -90,10 +90,10 @@ $link-color: #4c8bf5;
           transform: scale(6);
         }
         .avatar {
-          transform: translateY(-50%) scale(0.5);
+          transform: translateY(-50%) scale(0.4);
           filter: grayscale(0);
         }
-        .add {
+        .badge {
           opacity: 0;
         }
         .title {
@@ -179,7 +179,7 @@ $link-color: #4c8bf5;
           border: 1px solid rgba(225, 227, 232, 0.18);
           // box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
           background-color: #fff;
-          transition: all 0.4s ease;
+          transition: all 0.8s ease;
           will-change: transform;
         }
       }
@@ -228,14 +228,15 @@ $link-color: #4c8bf5;
         color: $dark-text-color;
 
         .innerLink {
+          display: block;
           pointer-events: none;
           margin: 8px 0;
           color: $link-color;
-          text-decoration: none;
+          text-decoration: underline dotted;
           &:hover,
           &:focus {
             color: lighten($link-color, 10%);
-            text-decoration: underline dotted;
+            text-decoration: underline solid;
           }
         }
       }
@@ -274,7 +275,7 @@ $link-color: #4c8bf5;
       /// the little attached badges (images)
       $add-size: 20%;
       $adds-fit: math.div(100%, $add-size * 2);
-      .add {
+      .badge {
         //z-index: 2;
         position: absolute;
         width: $add-size;
@@ -298,12 +299,6 @@ $link-color: #4c8bf5;
           }
         }
       }
-      // &[aria-pressed='true'] {
-      //   .add {
-      //     transform: translate(80px, 35px) scale(1.2);
-      //   }
-      // }
-      ////////////
     }
   }
 }

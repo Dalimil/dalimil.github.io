@@ -18,12 +18,13 @@ const sites = [
     className: styles.career,
     imgUrl: '/images/dali-career-profile.jpg',
     imgAlt: 'Dalimil Hajek career profile photo',
-    adds: [
+    badges: [
       { img: '/images/logos/uoe-blue.jpg' },
       { img: '/images/logos/uoe-white.jpg' },
       { img: '/images/logos/uoe-blue.jpg' },
     ],
     urlLink: '/career',
+    urlLinkText: 'Show career site 🡒',
     description: 'See my career highlights and experience...',
   },
   {
@@ -33,6 +34,7 @@ const sites = [
     imgUrl: '/images/dali-photography-profile.jpg',
     imgAlt: 'Dalimil Hajek photography profile photo',
     urlLink: 'https://dali-media.web.app/',
+    urlLinkText: 'Visit photography page 🡒',
     description: 'See my photography portfolio...',
   },
   {
@@ -41,8 +43,9 @@ const sites = [
     className: styles.university,
     imgUrl: '/images/dali-university-profile.jpg',
     imgAlt: 'Dalimil Hajek profile photo from university years',
-    adds: [{ img: '/images/logos/uoe-blue.jpg' }, { img: '/images/logos/uoe-white.jpg' }],
+    badges: [{ img: '/images/logos/uoe-blue.jpg' }, { img: '/images/logos/uoe-white.jpg' }],
     urlLink: 'https://dalimil.github.io/',
+    urlLinkText: 'Visit university page 🡒',
     description: 'See my university hackathon projects...',
   },
 ];
@@ -94,8 +97,8 @@ export const Home: FC = () => {
                   }}
                 >
                   <img src={site.imgUrl} alt={site.imgAlt} className={styles.avatar} />
-                  {site.adds?.map((add) => (
-                    <img key={add.img} className={styles.add} src={add.img} alt="" />
+                  {site.badges?.map((badge, index) => (
+                    <img key={index} className={styles.badge} src={badge.img} alt="" />
                   ))}
                   <div className={styles.title} id={titleId}>
                     {site.title}
@@ -114,17 +117,17 @@ export const Home: FC = () => {
                 </div>
                 <p aria-hidden={!isSelected} onClick={(e) => e.stopPropagation()}>
                   <span>{site.description}</span>
-                  <div className={styles.innerLink}>
+                  <span className={styles.innerLink}>
                     {site.urlLink.startsWith('/') ? (
                       <Link href={site.urlLink}>
-                        <a tabIndex={isSelected ? undefined : -1}>Show 🡒</a>
+                        <a tabIndex={isSelected ? undefined : -1}>{site.urlLinkText}</a>
                       </Link>
                     ) : (
                       <a href={site.urlLink} tabIndex={isSelected ? undefined : -1}>
-                        Visit 🡒
+                        {site.urlLinkText}
                       </a>
                     )}
-                  </div>
+                  </span>
                 </p>
               </div>
             </div>

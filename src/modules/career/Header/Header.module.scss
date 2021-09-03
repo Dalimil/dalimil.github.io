@@ -8,16 +8,20 @@
   z-index: 1; // to show box-shadow
   min-height: 56px;
 
-  .back {
+  nav {
     display: flex;
-    align-items: center;
-    padding: 0 24px 2px;
-    margin: 2px;
-    font-size: 40px;
-    color: #686868;
-    &:hover,
-    &:focus {
-      color: #4c8bf5;
+
+    .back {
+      display: flex;
+      align-items: center;
+      padding: 0 24px 2px;
+      margin: 2px;
+      font-size: 40px;
+      color: #686868;
+      &:hover,
+      &:focus {
+        color: #4c8bf5;
+      }
     }
   }
 
