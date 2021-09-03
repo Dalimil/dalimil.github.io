@@ -1,0 +1,54 @@
+$default-link-color: #686868;
+$app-color: #4c8bf5;
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  width: 56px;
+  height: 56px;
+  font-size: 1.7rem;
+  box-sizing: content-box;
+  padding-bottom: 12px; // Make space for ::after text
+
+  svg {
+    height: 54%;
+    // jerky: transition: transform 0.15s ease-out;
+  }
+  // transition: color 0.15s ease-out;
+  color: $default-link-color;
+
+  &:hover,
+  &:focus {
+    color: $app-color;
+    svg {
+      transform: scale(1.1);
+      transform-origin: center center;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    text-align: center;
+    font-size: 0.65rem;
+    text-transform: none;
+  }
+  &.linkedIn::after {
+    content: 'LinkedIn';
+  }
+  &.github::after {
+    content: 'GitHub';
+  }
+  &.instagram::after {
+    content: 'Instagram';
+  }
+  &.email::after {
+    content: 'Email';
+  }
+}

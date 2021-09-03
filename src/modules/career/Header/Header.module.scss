@@ -1,0 +1,37 @@
+.root {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  z-index: 1; // to show box-shadow
+  min-height: 56px;
+
+  .back {
+    display: flex;
+    align-items: center;
+    padding: 0 24px 2px;
+    margin: 2px;
+    font-size: 40px;
+    color: #686868;
+    &:hover,
+    &:focus {
+      color: #4c8bf5;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 24px 2px;
+    .link {
+      height: 50px;
+      width: 55px;
+      &::after {
+        bottom: 8%;
+      }
+    }
+  }
+}
