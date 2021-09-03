@@ -59,52 +59,68 @@ export const Home: FC = () => {
       onClick={() => setPressed(undefined)}
       style={{ '--x': `${mouse.x}px`, '--y': `${mouse.y}px` } as CSSProperties}
     >
+      {/* ACCORDION (a11y) of Sites that expand with more info.
+        (https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) */}
       <section className={styles.sites} aria-labelledby="main-section">
-        <h2 id="main-section" className="screen-reader-text">
-          List of Dali&apos;s portfolio sites.
-        </h2>
+        <h1 id="main-section" className="screen-reader-text">
+          List of Dalimil Hajek&apos;s portfolio sites.
+        </h1>
         {sites.map((site) => {
           const isSelected = pressed === site.id;
           const titleId = `${site.id}-title`;
-          const descriptionId = `${site.id}-description`;
+          const buttonId = `${site.id}-button`;
+          const panelId = `${site.id}-panel`;
           const spriteCount = 30;
           return (
-            <button
+            // We use DIV here as it has no a11y meaning, just wrapper for our accordion pieces.
+            <div
               key={site.className}
-              aria-expanded={isSelected}
-              onClick={(e) => {
-                setPressed(isSelected ? undefined : site.id);
-                e.stopPropagation();
-              }}
-              className={concatClasses(styles.site, site.className)}
-              aria-labelledby={titleId}
+              className={concatClasses(styles.site, site.className, isSelected && styles.isExpanded)}
             >
-              <div className={styles.sprites} aria-hidden="true">
-                {[...Array(spriteCount)].map((_, i) => (
-                  <div key={i} className={styles.sprite} />
-                ))}
-              </div>
-              <div className={styles.cardBox} aria-hidden="true">
-                <div className={styles.cardBackground} />
-              </div>
-              {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
-              <img src={site.imgUrl} alt={site.imgAlt} />
-              <h2 id={titleId}>{site.title}</h2>
-              <p aria-hidden={!isSelected}>
-                <span id={descriptionId}>{site.description}</span>
-                <div className={styles.innerLink}>
-                  {site.urlLink.startsWith('/') ? (
-                    <Link href={site.urlLink}>
-                      <a tabIndex={isSelected ? undefined : -1}>Show 🡒</a>
-                    </Link>
-                  ) : (
-                    <a href={site.urlLink} tabIndex={isSelected ? undefined : -1}>
-                      Visit 🡒
-                    </a>
-                  )}
+              <h2>
+                <button
+                  id={buttonId}
+                  aria-expanded={isSelected}
+                  aria-controls={panelId}
+                  aria-labelledby={titleId}
+                  onClick={(e) => {
+                    setPressed(isSelected ? undefined : site.id);
+                    e.stopPropagation();
+                  }}
+                >
+                  {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
+                  <img src={site.imgUrl} alt={site.imgAlt} />
+                  <div className={styles.title} id={titleId}>
+                    {site.title}
+                  </div>
+                </button>
+              </h2>
+              {/* Expandable content */}
+              <div role="region" aria-labelledby={buttonId} id={panelId}>
+                <div className={styles.sprites} aria-hidden="true">
+                  {[...Array(spriteCount)].map((_, i) => (
+                    <div key={i} className={styles.sprite} />
+                  ))}
                 </div>
-              </p>
-            </button>
+                <div className={styles.cardBox} aria-hidden="true">
+                  <div className={styles.cardBackground} />
+                </div>
+                <p aria-hidden={!isSelected} onClick={(e) => e.stopPropagation()}>
+                  <span>{site.description}</span>
+                  <div className={styles.innerLink}>
+                    {site.urlLink.startsWith('/') ? (
+                      <Link href={site.urlLink}>
+                        <a tabIndex={isSelected ? undefined : -1}>Show 🡒</a>
+                      </Link>
+                    ) : (
+                      <a href={site.urlLink} tabIndex={isSelected ? undefined : -1}>
+                        Visit 🡒
+                      </a>
+                    )}
+                  </div>
+                </p>
+              </div>
+            </div>
           );
         })}
       </section>

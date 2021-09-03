@@ -59,8 +59,6 @@ $link-color: #4c8bf5;
 
     $first-animation-length: 0.3s;
     .site {
-      @include reset-button;
-      cursor: pointer;
       position: relative;
       width: 200px;
       height: 200px;
@@ -74,7 +72,19 @@ $link-color: #4c8bf5;
 
       transition: filter ease 0.7s;
       transition-delay: $first-animation-length;
-      &[aria-expanded='true'] {
+      will-change: filter;
+      h2 {
+        // Put heading above everything else
+        z-index: 1;
+        button {
+          @include reset-button;
+          img,
+          .title {
+            cursor: pointer;
+          }
+        }
+      }
+      &.isExpanded {
         filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
         .cardBox .cardBackground {
           transform: scale(6);
@@ -83,11 +93,13 @@ $link-color: #4c8bf5;
           transform: translateY(-50%) scale(0.5);
           filter: grayscale(0);
         }
-        h2 {
+        .title {
+          cursor: auto;
           opacity: 0;
           transform: translateY(-4px) scale(0.8);
         }
         p {
+          z-index: 2; // now bring it in front for link to be clickable
           opacity: 1;
           // Add the delay only for pressed (fade-in) instead of both directions:
           transition-delay: $first-animation-length;
@@ -162,7 +174,7 @@ $link-color: #4c8bf5;
           height: 50px;
           border-radius: 50%;
           border: 1px solid rgba(225, 227, 232, 0.18);
-          box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
+          // box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
           background-color: #fff;
           transition: all 0.4s ease;
           will-change: transform;
@@ -187,13 +199,15 @@ $link-color: #4c8bf5;
         border-radius: 50%;
         border: 2px solid rgba(255, 255, 255, 0.5);
         filter: saturate(0.8);
-        transition: all $first-animation-length ease;
-        will-change: transform, filter;
+        transition: transform $first-animation-length ease;
+        will-change: transform, filter, box-shadow;
       }
-      h2 {
+      .title {
         display: block;
         text-align: center;
         position: absolute;
+        left: 0;
+        right: 0;
         bottom: -30px;
         color: $light-text-color;
         font-weight: normal;
@@ -240,15 +254,15 @@ $link-color: #4c8bf5;
       }
 
       // Mouse and focus only. Will have no effect on mobile.
-      &:hover,
-      &:focus {
-        &:not([aria-expanded='true']) {
-          box-shadow: 1px 3px 10px rgba(255, 255, 255, 0.3);
+      button:hover,
+      button:focus {
+        &[aria-expanded='false'] {
           img {
+            box-shadow: 1px 3px 10px rgba(255, 255, 255, 0.3);
             border: 2px solid rgba(255, 255, 255, 1);
             filter: grayscale(0);
           }
-          h2 {
+          .title {
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
           }
         }
