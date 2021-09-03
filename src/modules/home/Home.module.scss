@@ -94,7 +94,7 @@ $link-color: #4c8bf5;
           filter: grayscale(0);
         }
         .add {
-          transform: scale(0.5) translate(-50%, -50%);
+          opacity: 0;
         }
         .title {
           cursor: auto;
@@ -289,8 +289,8 @@ $link-color: #4c8bf5;
         // transform: translate(-50%, -50%);
         border-radius: 50%;
         border: 1px solid rgba(255, 255, 255, 0.5);
-        transition: transform $first-animation-length ease;
-        will-change: transform;
+        transition: opacity $first-animation-length ease;
+        opacity: 1;
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
             $angle: 0deg - (15deg * $i);
