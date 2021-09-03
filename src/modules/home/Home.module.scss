@@ -70,9 +70,8 @@ $link-color: #4c8bf5;
       align-items: center;
       flex-shrink: 0;
 
-      transition: filter ease 0.7s;
-      transition-delay: $first-animation-length;
-      will-change: filter;
+      transition: 0.7s filter ease $first-animation-length, $first-animation-length transform ease 0s;
+      will-change: filter, transform;
       h2 {
         // Put heading above everything else
         z-index: 1;
@@ -242,19 +241,30 @@ $link-color: #4c8bf5;
       }
       &.career {
         order: 2;
-        transform: translateY(-50px);
+        transform: translateY(-100px);
       }
       &.university {
         order: 3;
-        width: 100px;
-        height: 100px;
-        transform: translateY(50px);
+        transform: scale(0.5) translateY(50px);
+        &:not(.isExpanded) .title {
+          bottom: -50px;
+          transform: scale(2);
+        }
+        &.isExpanded {
+          transform: scale(1) translateY(50px);
+        }
       }
       &.photography {
         order: 1;
         width: 100px;
         height: 100px;
         transform: translateY(50px);
+      }
+      &.otherSiteSelected {
+        //transform: scale(0.5) translate(50px);
+        //transform-origin: bottom center;
+        // also delete the transition defined for this element
+        opacity: 0.5;
       }
 
       // Mouse and focus only. Will have no effect on mobile.

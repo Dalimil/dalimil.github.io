@@ -34,7 +34,7 @@ const sites = [
     imgUrl: '/images/dali-photography-profile.jpg',
     imgAlt: 'Dalimil Hajek photography profile photo',
     urlLink: 'https://dali-media.web.app/',
-    urlLinkText: 'Visit photography page 🡒',
+    urlLinkText: 'Visit photography 🡒',
     description: 'See my photography portfolio...',
   },
   {
@@ -51,7 +51,7 @@ const sites = [
 ];
 
 export const Home: FC = () => {
-  const [pressed, setPressed] = useState<string | undefined>(undefined);
+  const [selected, setSelected] = useState<string | undefined>(undefined);
   const [mouse, setMouse] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   // Shine effect variables
   const onMouseMove = useCallback((e) => {
@@ -64,7 +64,7 @@ export const Home: FC = () => {
     <main
       className={styles.root}
       onMouseMove={onMouseMove}
-      onClick={() => setPressed(undefined)}
+      onClick={() => setSelected(undefined)}
       style={{ '--x': `${mouse.x}px`, '--y': `${mouse.y}px` } as CSSProperties}
     >
       {/* ACCORDION (a11y) of Sites that expand with more info.
@@ -74,7 +74,7 @@ export const Home: FC = () => {
           List of Dalimil Hajek&apos;s portfolio sites.
         </h1>
         {sites.map((site) => {
-          const isSelected = pressed === site.id;
+          const isExpanded = selected === site.id;
           const titleId = `${site.id}-title`;
           const buttonId = `${site.id}-button`;
           const panelId = `${site.id}-panel`;
@@ -83,16 +83,21 @@ export const Home: FC = () => {
             // We use DIV here as it has no a11y meaning, just wrapper for our accordion pieces.
             <div
               key={site.className}
-              className={concatClasses(styles.site, site.className, isSelected && styles.isExpanded)}
+              className={concatClasses(
+                styles.site,
+                site.className,
+                isExpanded && styles.isExpanded,
+                !isExpanded && selected !== undefined && styles.otherSiteSelected
+              )}
             >
               <h2>
                 <button
                   id={buttonId}
-                  aria-expanded={isSelected}
+                  aria-expanded={isExpanded}
                   aria-controls={panelId}
                   aria-labelledby={titleId}
                   onClick={(e) => {
-                    setPressed(isSelected ? undefined : site.id);
+                    setSelected(isExpanded ? undefined : site.id);
                     e.stopPropagation();
                   }}
                 >
@@ -115,15 +120,15 @@ export const Home: FC = () => {
                 <div className={styles.cardBox} aria-hidden="true">
                   <div className={styles.cardBackground} />
                 </div>
-                <p aria-hidden={!isSelected} onClick={(e) => e.stopPropagation()}>
+                <p aria-hidden={!isExpanded} onClick={(e) => e.stopPropagation()}>
                   <span>{site.description}</span>
                   <span className={styles.innerLink}>
                     {site.urlLink.startsWith('/') ? (
                       <Link href={site.urlLink}>
-                        <a tabIndex={isSelected ? undefined : -1}>{site.urlLinkText}</a>
+                        <a tabIndex={isExpanded ? undefined : -1}>{site.urlLinkText}</a>
                       </Link>
                     ) : (
-                      <a href={site.urlLink} tabIndex={isSelected ? undefined : -1}>
+                      <a href={site.urlLink} tabIndex={isExpanded ? undefined : -1}>
                         {site.urlLinkText}
                       </a>
                     )}

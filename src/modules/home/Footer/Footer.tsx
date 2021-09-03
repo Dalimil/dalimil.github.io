@@ -16,7 +16,7 @@ export const Footer: FC = () => {
           WCAG
         </a>
         ) Level AA, following the latest <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> authoring
-        practices.
+        practices. Except for the animations, I went overboard with those just to show off :)
       </div>
     </>
   );
