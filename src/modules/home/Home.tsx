@@ -18,7 +18,11 @@ const sites = [
     className: styles.career,
     imgUrl: '/images/dali-career-profile.jpg',
     imgAlt: 'Dalimil Hajek career profile photo',
-    adds: [{ name: 'MS' }],
+    adds: [
+      { img: '/images/logos/uoe-blue.jpg' },
+      { img: '/images/logos/uoe-white.jpg' },
+      { img: '/images/logos/uoe-blue.jpg' },
+    ],
     urlLink: '/career',
     description: 'See my career highlights and experience...',
   },
@@ -37,6 +41,7 @@ const sites = [
     className: styles.university,
     imgUrl: '/images/dali-university-profile.jpg',
     imgAlt: 'Dalimil Hajek profile photo from university years',
+    adds: [{ img: '/images/logos/uoe-blue.jpg' }, { img: '/images/logos/uoe-white.jpg' }],
     urlLink: 'https://dalimil.github.io/',
     description: 'See my university hackathon projects...',
   },
@@ -88,8 +93,10 @@ export const Home: FC = () => {
                     e.stopPropagation();
                   }}
                 >
-                  {site.adds && <div className={styles.add}>{site.adds[0].name}</div>}
-                  <img src={site.imgUrl} alt={site.imgAlt} />
+                  <img src={site.imgUrl} alt={site.imgAlt} className={styles.avatar} />
+                  {site.adds?.map((add) => (
+                    <img key={add.img} className={styles.add} src={add.img} alt="" />
+                  ))}
                   <div className={styles.title} id={titleId}>
                     {site.title}
                   </div>

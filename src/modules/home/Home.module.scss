@@ -89,9 +89,12 @@ $link-color: #4c8bf5;
         .cardBox .cardBackground {
           transform: scale(6);
         }
-        img {
+        .avatar {
           transform: translateY(-50%) scale(0.5);
           filter: grayscale(0);
+        }
+        .add {
+          transform: scale(0.5) translate(-50%, -50%);
         }
         .title {
           cursor: auto;
@@ -192,7 +195,7 @@ $link-color: #4c8bf5;
           opacity: 0;
         }
       }
-      img {
+      .avatar {
         display: block;
         width: 100%;
         height: 100%;
@@ -257,7 +260,7 @@ $link-color: #4c8bf5;
       button:hover,
       button:focus {
         &[aria-expanded='false'] {
-          img {
+          .avatar {
             box-shadow: 1px 3px 10px rgba(255, 255, 255, 0.3);
             border: 2px solid rgba(255, 255, 255, 1);
             filter: grayscale(0);
@@ -268,15 +271,32 @@ $link-color: #4c8bf5;
         }
       }
 
-      /// the little add things, maybe just attach them as badges
+      /// the little attached badges (images)
+      $add-size: 20%;
+      $adds-fit: math.div(100%, $add-size * 2);
       .add {
+        //z-index: 2;
         position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 50px;
-        height: 50px;
-        background: red;
-        transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
+        width: $add-size;
+        height: $add-size;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        // top: 50% - math.sin(-45deg) * 50%;
+        // left: 50% + math.cos(-45deg) * 50%;
+        // transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: transform $first-animation-length ease;
+        will-change: transform;
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            $angle: 0deg - (15deg * $i);
+            transform: translate(math.cos($angle) * 100% * $adds-fit, math.sin(-$angle) * 100% * $adds-fit);
+          }
+        }
       }
       // &[aria-pressed='true'] {
       //   .add {
