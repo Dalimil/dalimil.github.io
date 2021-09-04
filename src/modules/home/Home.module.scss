@@ -34,22 +34,24 @@ $link-color: #4c8bf5;
     overflow: auto;
   }
 
-  // Mouse cursor shine effect
-  &::after {
-    pointer-events: none; // to allow click through
-    content: '';
-    width: 250vw;
-    height: 250vh;
-    position: absolute;
-    top: var(--y);
-    left: var(--x);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    background: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.3), transparent);
-    transition: opacity 0.5s ease-out;
-  }
-  &:hover::after {
-    opacity: 1;
+  @include desktop {
+    // Mouse cursor shine effect
+    &::after {
+      pointer-events: none; // to allow click through
+      content: '';
+      width: 250vw;
+      height: 250vh;
+      position: absolute;
+      top: var(--y);
+      left: var(--x);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      background: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.3), transparent);
+      transition: opacity 0.5s ease-out;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
   }
 
   .sites {
@@ -61,6 +63,8 @@ $link-color: #4c8bf5;
     z-index: 1;
     @include mobile {
       flex-direction: column;
+      margin-top: 150px;
+      margin-bottom: 100px;
     }
 
     $first-animation-length: 0.3s;
