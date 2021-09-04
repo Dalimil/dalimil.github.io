@@ -26,6 +26,7 @@ const sites = [
     urlLink: '/career',
     urlLinkText: 'Show career site 🡒',
     description: 'See my career highlights and experience...',
+    sprites: true,
   },
   {
     id: SiteId.photography,
@@ -36,6 +37,7 @@ const sites = [
     urlLink: 'https://dali-media.web.app/',
     urlLinkText: 'Visit photography 🡒',
     description: 'See my photography portfolio...',
+    sprites: false,
   },
   {
     id: SiteId.university,
@@ -47,6 +49,7 @@ const sites = [
     urlLink: 'https://dalimil.github.io/',
     urlLinkText: 'Visit university page 🡒',
     description: 'See my university hackathon projects...',
+    sprites: false,
   },
 ];
 
@@ -112,11 +115,13 @@ export const Home: FC = () => {
               </h2>
               {/* Expandable content */}
               <div role="region" aria-labelledby={buttonId} id={panelId}>
-                <div className={styles.sprites} aria-hidden="true">
-                  {[...Array(spriteCount)].map((_, i) => (
-                    <div key={i} className={styles.sprite} />
-                  ))}
-                </div>
+                {site.sprites && (
+                  <div className={styles.sprites} aria-hidden="true">
+                    {[...Array(spriteCount)].map((_, i) => (
+                      <div key={i} className={styles.sprite} />
+                    ))}
+                  </div>
+                )}
                 <div className={styles.cardBox} aria-hidden="true">
                   <div className={styles.cardBackground} />
                 </div>
