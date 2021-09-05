@@ -8,7 +8,7 @@ export const Footer: FC = () => {
   return (
     <>
       <footer className={styles.root}>
-        <SocialLinks />
+        <SocialLinks linkClassName={styles.link} />
       </footer>
       <div style={{ position: 'absolute', top: 0, left: 0 }}>
         This website is aiming to meet Web Content Accessibility Guidelines (

@@ -14,4 +14,12 @@
     bottom: unset;
     top: 16px;
   }
+
+  .link {
+    color: #eee;
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
 }
