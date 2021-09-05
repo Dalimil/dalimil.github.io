@@ -47,7 +47,18 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
                   e.stopPropagation();
                 }}
               >
-                <img src={site.imgUrl} alt={site.imgAlt} className={styles.avatar} />
+                <img
+                  src={site.imgUrl}
+                  alt={site.imgAlt}
+                  className={concatClasses(styles.avatar, site.backSideImgUrl && styles.avatarFrontSide)}
+                />
+                {site.backSideImgUrl && (
+                  <img
+                    src={site.backSideImgUrl}
+                    alt={site.backSideImgAlt}
+                    className={concatClasses(styles.avatar, styles.avatarBackSide)}
+                  />
+                )}
                 {site.badges?.map((badge, index) => (
                   <img key={index} className={styles.badge} src={badge.img} alt="" />
                 ))}

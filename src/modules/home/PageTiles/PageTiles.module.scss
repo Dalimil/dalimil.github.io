@@ -55,14 +55,20 @@ $link-color: #4c8bf5;
       z-index: 1;
       button {
         @include reset-button;
+        position: relative;
+        transform-style: preserve-3d;
+        // perspective: 300px;
         img,
         .title {
           cursor: pointer;
         }
+        .badge {
+          z-index: 2;
+        }
       }
     }
     &.isExpanded {
-      filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.9));
+      filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.7));
       .cardBox .cardBackground {
         transform: scale(6);
       }
@@ -179,8 +185,17 @@ $link-color: #4c8bf5;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.5);
       filter: saturate(0.8);
-      transition: transform $first-animation-length ease;
+      transition: transform 0.5s ease;
       will-change: transform, filter, box-shadow;
+      backface-visibility: hidden;
+      &.avatarBackSide {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transform: rotateX(180deg);
+      }
     }
     .title {
       display: block;
@@ -240,6 +255,16 @@ $link-color: #4c8bf5;
         transform: scale(1) translateY(50px);
         .title {
           transform: translateY(-4px) scale(0.3);
+        }
+        .avatar {
+          transform: translateY(-50%) scale(0.4);
+          filter: grayscale(0);
+          &.avatarFrontSide {
+            transform: translateY(-50%) rotateX(180deg) scale(0.4);
+          }
+          &.avatarBackSide {
+            transform: translateY(-50%) rotateX(0deg) scale(0.4);
+          }
         }
       }
     }
@@ -303,6 +328,9 @@ $link-color: #4c8bf5;
           transform: translate(math.cos($angle) * 100% * $adds-fit, math.sin(-$angle) * 100% * $adds-fit);
         }
       }
+    }
+    &:not(.isExpanded) .badge {
+      transition-delay: $first-animation-length; // only applied on fade back in
     }
   }
 }
