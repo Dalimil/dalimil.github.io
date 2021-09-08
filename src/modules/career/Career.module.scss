@@ -5,7 +5,7 @@ $header-max-width: 500px;
 
 .main {
   position: relative;
-  background: linear-gradient(135deg, #e2a9e5 15%, #2b94e5 100%);
+  background: linear-gradient(135deg, #2b94e5 15%, #e2a9e5 100%);
   min-height: 100vh;
   padding: 24px 24px;
   @include max-media($header-max-width) {
