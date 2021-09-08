@@ -94,13 +94,17 @@ $link-color: #4c8bf5;
         }
       }
       .sprites {
+        animation: spin 36s linear infinite $first-animation-length;
         // little dots that fly out in a circle
-        $circle-size: 2000%;
+        $circle-size: 1600%;
         $dot-count: 30; // should match the element count rendered (can't use css vars here)
         $step: math.div(360deg, $dot-count);
         @for $i from 1 through $dot-count {
           $angle: $i * $step;
-          $translated-position: translate(math.cos($angle) * $circle-size, math.sin($angle) * $circle-size);
+          $translated-position: translate(
+            math.round(math.cos($angle) * $circle-size),
+            math.round(math.sin($angle) * $circle-size)
+          );
 
           .sprite:nth-child(#{$i}) {
             opacity: 1;
@@ -111,10 +115,14 @@ $link-color: #4c8bf5;
             // Transform - to spread out the initial dots in a circle
             transform: $translated-position;
             // Animation - to keep them going back and forth later (with randomly delayed-start)
-            animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms;
+            animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms none;
+            @-moz-document url-prefix() {
+              // Target Firefox only
+              animation-fill-mode: backwards; // transition+animation combo is broken in FFox
+            }
             // row rollout: transition-delay: 20ms * $i;
             $stepMs: 50;
-            transition-delay: #{($stepMs * $i) % ($stepMs * math.div($dot-count, 4))}ms;
+            transition-delay: #{($stepMs * $i) % ($stepMs * math.div($dot-count, 2))}ms;
             //transition-delay: #{$stepMs * $i * math.tan($angle)}ms;
           }
           // Alternative would be getting rid of fluidity and just speed up and slow down the rotation
@@ -129,11 +137,11 @@ $link-color: #4c8bf5;
               transform: $translated-position;
             }
             50% {
-              $fly-away-factor: 1.3;
+              $fly-away-factor: 1.25;
               // Same formula, just bigger multiplier
               transform: translate(
-                math.cos($angle) * $circle-size * $fly-away-factor,
-                math.sin($angle) * $circle-size * $fly-away-factor
+                math.round(math.cos($angle) * $circle-size * $fly-away-factor),
+                math.round(math.sin($angle) * $circle-size * $fly-away-factor)
               );
             }
             70% {
@@ -144,7 +152,6 @@ $link-color: #4c8bf5;
             }
           }
         }
-        animation: spin 24s linear infinite $first-animation-length;
       }
     }
     .cardBox {
@@ -162,7 +169,7 @@ $link-color: #4c8bf5;
         border: 1px solid rgba(225, 227, 232, 0.18);
         // box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
         background-color: #fff;
-        transition: all 0.8s ease;
+        transition: all 0.6s ease;
         will-change: transform;
       }
     }
@@ -185,7 +192,7 @@ $link-color: #4c8bf5;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.5);
       filter: saturate(0.8);
-      transition: transform 0.5s ease;
+      transition: transform 0.4s ease;
       will-change: transform, filter, box-shadow;
       backface-visibility: hidden;
       &.avatarBackSide {

@@ -1,5 +1,6 @@
-import { CSSProperties, FC, useCallback, useState } from 'react';
+import { CSSProperties, FC, useMemo, useState } from 'react';
 
+import { throttle } from 'utils/throttle';
 import { Footer } from './Footer';
 import { PageTiles } from './PageTiles';
 
@@ -9,9 +10,13 @@ export const Home: FC = () => {
   const [selected, setSelected] = useState<string | undefined>(undefined);
   const [mouse, setMouse] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   // Shine effect variables
-  const onMouseMove = useCallback((e) => {
-    setMouse({ x: e.pageX, y: e.pageY });
-  }, []);
+  const onMouseMove = useMemo(
+    () =>
+      throttle((e) => {
+        setMouse({ x: e.pageX, y: e.pageY });
+      }, 30),
+    []
+  );
 
   return (
     // We place the navigation and footer in main because it's the main
