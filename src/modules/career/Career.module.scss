@@ -1,5 +1,103 @@
+@import 'mixins';
+
+$link-color: orange;
+
 .main {
   position: relative;
   background: linear-gradient(135deg, #a9e5ce 15%, #e5602b 100%);
   min-height: 100vh;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 1.4;
+
+  > header {
+    display: flex;
+    padding: 16px 16px 18px;
+    background: linear-gradient(135deg, #fff 15%, #eee 100%);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      margin-right: 16px;
+    }
+    h1 {
+      font-weight: semi-bold;
+      font-size: 24px;
+      line-height: 30px;
+    }
+    .secondaryTitle {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .location {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      line-height: 17.5px;
+    }
+    .info {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  }
+
+  .profileSection {
+    margin: 16px 24px;
+    h2 {
+      font-weight: normal;
+      font-size: 20px;
+    }
+
+    width: 700px;
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  article {
+    margin: 16px 0;
+    padding: 16px 16px 24px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    header {
+      h3 {
+        font-weight: semi-bold;
+        font-size: 16px;
+      }
+      .secondaryTitle {
+        font-size: 14px;
+      }
+      .timePeriod,
+      .location {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+      }
+    }
+    .content {
+      p {
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      a {
+        display: block;
+        margin: 16px 0 0;
+        color: $link-color;
+        text-decoration: underline dotted;
+        &:hover,
+        &:focus {
+          color: lighten($link-color, 10%);
+          text-decoration: underline solid;
+        }
+      }
+    }
+  }
 }
