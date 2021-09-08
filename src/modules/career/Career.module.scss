@@ -4,9 +4,12 @@ $link-color: orange;
 
 .main {
   position: relative;
-  background: linear-gradient(135deg, #a9e5ce 15%, #e5602b 100%);
+  background: linear-gradient(135deg, #e2a9e5 15%, #2b94e5 100%);
   min-height: 100vh;
-  padding: 16px 24px;
+  padding: 24px 24px;
+  @include mobile {
+    padding: 0 0 24px;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,37 +18,72 @@ $link-color: orange;
   line-height: 1.4;
 
   > header {
-    display: flex;
-    padding: 16px 16px 18px;
+    $header-max-width: 500px;
+    max-width: $header-max-width;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'banner banner banner'
+      'avatar info info';
+    row-gap: 16px;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 18px;
+    margin-bottom: 24px;
     background: linear-gradient(135deg, #fff 15%, #eee 100%);
-    border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    img {
+    border-radius: 3px;
+    @include max-media($header-max-width) {
+      border-radius: 0;
+    }
+    .banner {
+      grid-area: banner;
+      display: block;
+      width: 100%;
+      max-height: 120px;
+      opacity: 0.85;
+      object-fit: cover;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      @include max-media($header-max-width) {
+        border-radius: 0;
+      }
+    }
+    .avatar {
+      grid-area: avatar;
+      place-self: center;
       display: block;
       width: 100%;
       height: 100%;
       max-width: 100px;
+      max-height: 100px;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.5);
-      margin-right: 16px;
+      margin: 0 16px 0 16px;
     }
-    h1 {
-      font-weight: semi-bold;
-      font-size: 24px;
-      line-height: 30px;
-    }
-    .secondaryTitle {
-      font-size: 16px;
-      line-height: 20px;
-    }
-    .location {
-      color: rgba(0, 0, 0, 0.6);
-      font-size: 14px;
-      line-height: 17.5px;
-    }
-    .info {
-      margin-top: 8px;
-      font-size: 14px;
+    div {
+      grid-area: info;
+      margin: 0 20px 0 0;
+      h1 {
+        font-weight: semi-bold;
+        font-size: 24px;
+        line-height: 30px;
+      }
+      .secondaryTitle {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .location {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        line-height: 17.5px;
+      }
+      .info {
+        margin-top: 8px;
+        font-size: 14px;
+      }
     }
   }
 

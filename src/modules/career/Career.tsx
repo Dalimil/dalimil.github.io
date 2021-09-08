@@ -50,7 +50,12 @@ export const Career: FC = () => {
       <Header />
       <main className={styles.main}>
         <header>
-          <img src="/images/dali-career-profile.jpg" alt="Dalimil Hajek career profile photo" />
+          <img className={styles.banner} src="/images/career/banner.jpg" alt="" />
+          <img
+            className={styles.avatar}
+            src="/images/dali-career-profile.jpg"
+            alt="Dalimil Hajek career profile photo"
+          />
           <div>
             <h1>Dalimil Hajek</h1>
             <p className={styles.secondaryTitle}>Software Engineer II @ Microsoft</p>
