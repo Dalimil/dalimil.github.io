@@ -1,0 +1,56 @@
+@import 'mixins';
+@import '../careerVariables';
+
+.root {
+  position: relative;
+  margin: 16px 0;
+  padding: 16px 16px 24px;
+  background: #fff;
+  border-radius: 3px;
+  @include small-mobile {
+    border-radius: 0;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+  box-shadow: $default-box-shadow;
+  header {
+    h3 {
+      font-weight: semi-bold;
+      font-size: 16px;
+    }
+    .secondaryTitle {
+      font-size: 14px;
+    }
+    .timePeriod,
+    .location {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+    }
+    .logo {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 50px;
+      &.larger {
+        width: 55px;
+      }
+    }
+  }
+  .content {
+    p {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    a {
+      display: block;
+      margin: 16px 0 0;
+      color: $link-color;
+      text-decoration: underline dotted;
+      &:hover,
+      &:focus {
+        color: lighten($link-color, 10%);
+        text-decoration: underline solid;
+      }
+    }
+  }
+}

@@ -1,35 +1,28 @@
 import { FC } from 'react';
 
-import { concatClasses } from 'utils/concatClasses';
-import { CareerEntry } from './CareerEntry';
-import { education, experience } from './experience';
+import { CareerArticle } from './CareerArticle';
+import { education, experience, openSource } from './experience';
 import { Header } from './Header';
 
 import styles from './Career.module.scss';
 
-export const CareerArticle: FC<{ article: CareerEntry }> = ({ article }) => {
-  return (
-    <article>
-      <header>
-        <h3>{article.title}</h3>
-        <p className={styles.secondaryTitle}>{article.subTitle}</p>
-        <p className={styles.timePeriod}>
-          <time>{article.date.from}</time> – <time>{article.date.to}</time>
-        </p>
-        <p className={styles.location}>{article.location}</p>
-        <img
-          className={concatClasses(styles.logo, article.imgEnlarge && styles.larger)}
-          src={article.img}
-          alt={article.subTitle}
-        />
-      </header>
-      <section className={styles.content}>
-        <p dangerouslySetInnerHTML={{ __html: article.content }} />
-        {article.additionalLink && <a href={article.additionalLink.href}>{article.additionalLink.text}</a>}
-      </section>
-    </article>
-  );
-};
+const careerSections = [
+  {
+    id: 'experience',
+    title: 'Experience',
+    articles: experience,
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    articles: education,
+  },
+  {
+    id: 'open-source',
+    title: 'Volunteer experience',
+    articles: openSource,
+  },
+];
 
 export const Career: FC = () => {
   return (
@@ -50,24 +43,17 @@ export const Career: FC = () => {
             <p className={styles.info}>Passionate about web and user experience.</p>
           </div>
         </header>
-        {/* EXPERIENCE */}
-        <section className={styles.profileSection}>
-          <header>
-            <h2>Experience</h2>
-          </header>
-          {experience.map((exp) => (
-            <CareerArticle key={exp.id} article={exp} />
-          ))}
-        </section>
-        {/* EDUCATION */}
-        <section className={styles.profileSection}>
-          <header>
-            <h2>Education</h2>
-          </header>
-          {education.map((exp) => (
-            <CareerArticle key={exp.id} article={exp} />
-          ))}
-        </section>
+        {careerSections.map((section) => (
+          <section key={section.id} className={styles.profileSection}>
+            <header>
+              <h2>{section.title}</h2>
+            </header>
+            {section.articles.map((article) => (
+              <CareerArticle key={article.id} article={article} />
+            ))}
+          </section>
+        ))}
+        <footer>© 2021 Dalimil Hajek</footer>
       </main>
     </>
   );

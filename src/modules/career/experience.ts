@@ -54,7 +54,7 @@ export const experience: CareerEntry[] = [
     img: '/images/career/cherry.png',
     content:
       '• Led a development team with two direct reports.<br />' +
-      '• Managed tasks, code reviews, and developed company&apos;s core-product mobile-first web app.',
+      '• Managed tasks, code reviews, and developed company&apos;s core-product mobile web app.',
   },
   {
     id: 'google',
@@ -116,5 +116,31 @@ export const experience: CareerEntry[] = [
     location: 'Prague, Czech Republic',
     img: '/images/career/avast.png',
     content: '• Worked on the Android team on apps such as Antivirus & Security.',
+  },
+];
+
+/** Open source experience to be displayed on the career page */
+export const openSource: CareerEntry[] = [
+  {
+    id: 'mozilla',
+    title: 'Open Source Contributor',
+    subTitle: 'Mozilla Firefox',
+    date: {
+      from: 'Jun 2016',
+      to: 'Feb 2017',
+    },
+    img: '/images/career/mozilla.png',
+    content: '• Fixed bugs in Mozilla Firefox, primarily in Firefox Developer Tools.',
+  },
+  {
+    id: 'microsoft-fluent',
+    title: 'Open Source Contributor',
+    subTitle: 'Microsoft Fluent UI',
+    date: {
+      from: 'Feb 2019',
+      to: 'Apr 2021',
+    },
+    img: '/images/career/microsoft.jpg',
+    content: '• Contributed multiple improvements to Microsoft&apos;s leading UI/UX framework.',
   },
 ];

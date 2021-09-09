@@ -6,7 +6,7 @@ export interface CareerEntry {
     from: string;
     to: string;
   };
-  location: string;
+  location?: string;
   img: string;
   imgEnlarge?: boolean;
   content: string;
