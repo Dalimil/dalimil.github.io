@@ -1,12 +1,35 @@
 import { FC } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
-import { experience } from './experience';
+import { CareerEntry } from './CareerEntry';
+import { education, experience } from './experience';
 import { Header } from './Header';
 
 import styles from './Career.module.scss';
 
-const universityPageUrl = 'https://dalimil.github.io/university';
+export const CareerArticle: FC<{ article: CareerEntry }> = ({ article }) => {
+  return (
+    <article>
+      <header>
+        <h3>{article.title}</h3>
+        <p className={styles.secondaryTitle}>{article.subTitle}</p>
+        <p className={styles.timePeriod}>
+          <time>{article.date.from}</time> – <time>{article.date.to}</time>
+        </p>
+        <p className={styles.location}>{article.location}</p>
+        <img
+          className={concatClasses(styles.logo, article.imgEnlarge && styles.larger)}
+          src={article.img}
+          alt={article.subTitle}
+        />
+      </header>
+      <section className={styles.content}>
+        <p dangerouslySetInnerHTML={{ __html: article.content }} />
+        {article.additionalLink && <a href={article.additionalLink.href}>{article.additionalLink.text}</a>}
+      </section>
+    </article>
+  );
+};
 
 export const Career: FC = () => {
   return (
@@ -33,24 +56,7 @@ export const Career: FC = () => {
             <h2>Experience</h2>
           </header>
           {experience.map((exp) => (
-            <article key={exp.id}>
-              <header>
-                <h3>{exp.title}</h3>
-                <p className={styles.secondaryTitle}>{exp.subTitle}</p>
-                <p className={styles.timePeriod}>
-                  <time>{exp.date.from}</time> – <time>{exp.date.to}</time>
-                </p>
-                <p className={styles.location}>{exp.location}</p>
-                <img
-                  className={concatClasses(styles.logo, exp.imgEnlarge && styles.larger)}
-                  src={exp.img}
-                  alt={exp.subTitle}
-                />
-              </header>
-              <section className={styles.content}>
-                <p dangerouslySetInnerHTML={{ __html: exp.content }} />
-              </section>
-            </article>
+            <CareerArticle key={exp.id} article={exp} />
           ))}
         </section>
         {/* EDUCATION */}
@@ -58,22 +64,9 @@ export const Career: FC = () => {
           <header>
             <h2>Education</h2>
           </header>
-          <article>
-            <header>
-              <h3>The University of Edinburgh</h3>
-              <p className={styles.secondaryTitle}>BSc Computer Science, First Class with Honours</p>
-              <p className={styles.timePeriod}>
-                <time>2015</time> – <time>2018</time>
-              </p>
-            </header>
-            <section className={styles.content}>
-              <p>
-                • Worked as a Tutor in 2017/2018 (Teaching Support Contract).
-                <br />• My dissertation project reached 30,000 active users and got acquired.
-              </p>
-              <a href={universityPageUrl}>Visit university page 🡒</a>
-            </section>
-          </article>
+          {education.map((exp) => (
+            <CareerArticle key={exp.id} article={exp} />
+          ))}
         </section>
       </main>
     </>
