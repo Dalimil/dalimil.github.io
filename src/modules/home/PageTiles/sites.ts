@@ -54,7 +54,7 @@ export const sites: Site[] = [
     imgAlt: 'University of Edinburgh logo',
     backSideImgUrl: '/images/dali-university-profile.jpg',
     backSideImgAlt: 'Dalimil Hajek profile photo from university years',
-    urlLink: 'https://dalimil.github.io/',
+    urlLink: 'https://dalimil.github.io/university',
     urlLinkText: 'Visit university page 🡒',
     description: 'See my university hackathon projects...',
     sprites: false,

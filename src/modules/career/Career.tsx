@@ -6,7 +6,7 @@ import { Header } from './Header';
 
 import styles from './Career.module.scss';
 
-const universityPageUrl = 'https://dalimil.github.io/';
+const universityPageUrl = 'https://dalimil.github.io/university';
 
 export const Career: FC = () => {
   return (
