@@ -1,8 +1,5 @@
-# Dali Portfolio
-This is a NextJS app of my personal portfolio website. 
+# dalimil.github.io
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_Some files in the project were based on code under the CC BY 3.0 license.  
+(Creative Commons Attribution 3.0 Unported | http://creativecommons.org/licenses/by/3.0/).  
+Significant changes have been made. (Dalimil Hajek)_
