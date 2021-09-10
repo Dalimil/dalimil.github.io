@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "npx serve ./out/",
-    "deploy": "rm -rf node_modules/.cache && next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
+    "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
     "lint": "next lint"
   },
   "sideEffects": false,
