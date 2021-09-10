@@ -12,9 +12,4 @@ module.exports = withOptimizedImages({
     // IncludePaths let's us directly @import 'mixins'; or @import 'variables'; anywhere without specifying full path
     includePaths: [path.join(__dirname, 'src/styles')],
   },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-    localeDetection: false,
-  },
 });
