@@ -1,3 +1,5 @@
+import { CustomImgProps } from 'modules/common/CustomImgProps';
+
 export interface CareerEntry {
   id: string;
   title: string;
@@ -7,7 +9,7 @@ export interface CareerEntry {
     to: string;
   };
   location?: string;
-  img: string;
+  img: React.FC<CustomImgProps>;
   imgEnlarge?: boolean;
   content: string;
   additionalLink?: {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Dispatch, FC, SetStateAction } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
-import { sites } from './sites';
+import { siteImages, sites } from './sites';
 
 import styles from './PageTiles.module.scss';
 
@@ -25,6 +25,7 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
         const buttonId = `${site.id}-button`;
         const panelId = `${site.id}-panel`;
         const spriteCount = 30;
+        const images = siteImages[site.id];
         return (
           // We use DIV here as it has no a11y meaning, just wrapper for our accordion pieces.
           <div
@@ -47,14 +48,12 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
                   e.stopPropagation();
                 }}
               >
-                <img
-                  src={site.imgUrl}
+                <images.primary
                   alt={site.imgAlt}
-                  className={concatClasses(styles.avatar, site.backSideImgUrl && styles.avatarFrontSide)}
+                  className={concatClasses(styles.avatar, images.secondary && styles.avatarFrontSide)}
                 />
-                {site.backSideImgUrl && (
-                  <img
-                    src={site.backSideImgUrl}
+                {images.secondary && (
+                  <images.secondary
                     alt={site.backSideImgAlt}
                     className={concatClasses(styles.avatar, styles.avatarBackSide)}
                   />

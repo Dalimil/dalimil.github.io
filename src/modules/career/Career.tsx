@@ -1,5 +1,8 @@
 import { FC } from 'react';
+import Img from 'react-optimized-image';
 
+import CareerBannerImage from 'public/images/career/banner.jpg';
+import AvatarImage from 'public/images/dali-career-profile.jpg';
 import { CareerArticle } from './CareerArticle';
 import { education, experience, openSource } from './experience';
 import { Header } from './Header';
@@ -30,13 +33,13 @@ export const Career: FC = () => {
       <Header />
       <main className={styles.main}>
         <header>
-          <img className={styles.banner} src="/images/career/banner.jpg" alt="" />
-          <img
-            className={styles.avatar}
-            src="/images/dali-career-profile.jpg"
-            alt="Dalimil Hajek career profile photo"
-          />
-          <div>
+          <div className={styles.banner}>
+            <Img src={CareerBannerImage} alt="" />
+          </div>
+          <div className={styles.avatar}>
+            <Img src={AvatarImage} alt="Dalimil Hajek career profile photo" />
+          </div>
+          <div className={styles.intro}>
             <h1>Dalimil Hajek</h1>
             <p className={styles.secondaryTitle}>Software Engineer II @ Microsoft</p>
             <p className={styles.location}>Vancouver, Canada</p>

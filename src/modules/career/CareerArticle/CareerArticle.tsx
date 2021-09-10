@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Img from 'react-optimized-image';
 
 import { concatClasses } from 'utils/concatClasses';
 import { CareerEntry } from '../CareerEntry';
@@ -19,9 +20,8 @@ export const CareerArticle: FC<CareerArticleProps> = ({ article }) => {
           <time>{article.date.from}</time> – <time>{article.date.to}</time>
         </p>
         {article.location && <p className={styles.location}>{article.location}</p>}
-        <img
+        <article.img
           className={concatClasses(styles.logo, article.imgEnlarge && styles.larger)}
-          src={article.img}
           alt={article.subTitle}
         />
       </header>
