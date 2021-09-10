@@ -9,12 +9,13 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "sideEffects": false,
   "dependencies": {
+    "framer-motion": "^4.1.17",
     "next": "11.1.0",
     "nextjs-progressbar": "^0.0.11",
     "react": "17.0.2",
