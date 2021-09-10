@@ -276,13 +276,13 @@ $link-color: #4c8bf5;
       }
     }
     &.university {
-      order: 3;
+      order: 1;
       @include mobile {
         order: unset;
       }
     }
     &.photography {
-      order: 1;
+      order: 3;
       @include mobile {
         order: unset;
       }
