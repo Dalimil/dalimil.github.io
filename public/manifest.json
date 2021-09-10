@@ -1,8 +1,16 @@
 {
+  "name": "Dalimil Hajek's Portfolio Website",
+  "short_name": "Dali's Portfolio",
   "icons": [
     {
       "src": "/images/icons/suitcase256.png",
       "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icons/suitcase512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],

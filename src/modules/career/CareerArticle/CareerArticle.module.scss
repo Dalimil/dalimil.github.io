@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'variables';
 @import '../careerVariables';
 
 .root {
@@ -44,11 +45,11 @@
     a {
       display: block;
       margin: 16px 0 0;
-      color: $link-color;
+      color: $app-color;
       text-decoration: underline dotted;
       &:hover,
       &:focus {
-        color: lighten($link-color, 10%);
+        color: lighten($app-color, 10%);
         text-decoration: underline solid;
       }
     }

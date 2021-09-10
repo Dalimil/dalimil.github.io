@@ -45,6 +45,7 @@ export const SocialLinks: FC<SocialLinksProps> = ({ linkClassName: externalClass
           key={link.href}
           href={link.href}
           data-title={link.title}
+          aria-label={link.title}
           className={concatClasses(styles.socialLink, link.className, externalClassName)}
           rel={link.rel}
         >

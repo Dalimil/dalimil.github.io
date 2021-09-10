@@ -1,9 +1,9 @@
 @use 'sass:math';
 @import 'mixins';
+@import 'variables';
 
 $dark-text-color: #686868;
 $light-text-color: #fff;
-$link-color: #4c8bf5;
 
 @mixin abs-centered {
   position: absolute;
@@ -109,7 +109,7 @@ $link-color: #4c8bf5;
           .sprite:nth-child(#{$i}) {
             opacity: 1;
             background-color: scale-color(
-              $link-color,
+              $app-color,
               $lightness: math.min(100%, math.max(0%, 50% - math.cos($angle * 2) * 50%))
             );
             // Transform - to spread out the initial dots in a circle
@@ -234,11 +234,11 @@ $link-color: #4c8bf5;
         display: block;
         pointer-events: none;
         margin: 8px 0;
-        color: $link-color;
+        color: $app-color;
         text-decoration: underline dotted;
         &:hover,
         &:focus {
-          color: lighten($link-color, 10%);
+          color: lighten($app-color, 10%);
           text-decoration: underline solid;
         }
       }
