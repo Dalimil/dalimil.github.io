@@ -45,11 +45,10 @@ $first-animation-length: 0.3s;
         // Transform - to spread out the initial dots in a circle
         transform: $translated-position;
         // Animation - to keep them going back and forth later (with randomly delayed-start)
-        animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms none;
-        @-moz-document url-prefix() {
-          // Target Firefox only
-          animation-fill-mode: backwards; // transition+animation combo is broken in FFox
-        }
+        animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms;
+        // @-moz-document url-prefix() { // Target Firefox only
+        animation-fill-mode: backwards; // transition+animation combo is broken in FFox
+        // }
         // row rollout: transition-delay: 20ms * $i;
         $stepMs: 50;
         transition-delay: #{($stepMs * $i) % ($stepMs * math.div($dot-count, 2))}ms;
