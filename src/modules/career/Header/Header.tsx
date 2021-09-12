@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import { SocialLinks } from 'modules/common';
+import { backArrowIconCircle } from './icons';
 
 import styles from './Header.module.scss';
 
@@ -11,7 +12,7 @@ export const Header: FC = () => {
       <nav>
         <Link href="/">
           <a className={styles.back}>
-            <span aria-hidden="true">🡐 </span>
+            {backArrowIconCircle}
             <span className="screen-reader-text">Return to home page</span>
           </a>
         </Link>

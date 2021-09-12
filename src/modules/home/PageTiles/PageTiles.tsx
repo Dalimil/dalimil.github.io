@@ -3,6 +3,7 @@ import { Dispatch, FC, SetStateAction } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
 import { siteImages, sites } from './sites';
+import { Sprites } from './Sprites';
 
 import styles from './PageTiles.module.scss';
 
@@ -24,7 +25,7 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
         const titleId = `${site.id}-title`;
         const buttonId = `${site.id}-button`;
         const panelId = `${site.id}-panel`;
-        const spriteCount = 30;
+        const spriteCount = 100;
         const images = siteImages[site.id];
         return (
           // We use DIV here as it has no a11y meaning, just wrapper for our accordion pieces.
@@ -68,13 +69,7 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
             </h2>
             {/* Expandable content */}
             <div role="region" aria-labelledby={buttonId} id={panelId}>
-              {site.sprites && (
-                <div className={styles.sprites} aria-hidden="true">
-                  {[...Array(spriteCount)].map((_, i) => (
-                    <div key={i} className={styles.sprite} />
-                  ))}
-                </div>
-              )}
+              {site.sprites && <Sprites hidden={!isExpanded} count={spriteCount} />}
               <div className={styles.cardBox} aria-hidden="true">
                 <div className={styles.cardBackground} />
               </div>

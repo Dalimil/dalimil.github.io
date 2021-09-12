@@ -35,7 +35,7 @@ export const education: CareerEntry[] = [
       '• Worked as a Tutor in 2017/2018 (Teaching Support Contract).<br />' +
       '• My dissertation project reached 30,000 active users and got acquired.',
     additionalLink: {
-      text: 'Visit university page 🡒',
+      text: 'Visit university page ›',
       href: universityPageUrl,
     },
   },

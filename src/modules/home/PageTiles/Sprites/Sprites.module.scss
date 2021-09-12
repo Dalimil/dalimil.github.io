@@ -1,0 +1,86 @@
+@use 'sass:math';
+@import 'mixins';
+@import 'variables';
+
+$first-animation-length: 0.3s;
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.sprites {
+  @include abs-centered;
+  .sprite {
+    width: 2%;
+    height: 2%;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    will-change: transform, transition-delay, opacity;
+    position: absolute;
+    opacity: 0;
+    background-color: #fff;
+  }
+
+  &.isShown {
+    animation: spin 36s linear infinite $first-animation-length;
+    // little dots that fly out in a circle
+    $circle-size: 3200%;
+    $dot-count: 100; // should match the element count rendered (can't use css vars here)
+    $step: math.div(360deg, $dot-count);
+    @for $i from 1 through $dot-count {
+      $angle: $i * $step;
+      $translated-position: translate(
+        math.round(math.cos($angle) * $circle-size),
+        math.round(math.sin($angle) * $circle-size)
+      );
+
+      .sprite:nth-child(#{$i}) {
+        opacity: 1;
+        // background-color: scale-color(
+        //   $app-color,
+        //   $lightness: math.min(100%, math.max(0%, 50% - math.cos($angle * 2) * 50%))
+        // );
+        // Transform - to spread out the initial dots in a circle
+        transform: $translated-position;
+        // Animation - to keep them going back and forth later (with randomly delayed-start)
+        animation: fluidity#{$i} 4s ease alternate infinite #{1000 + math.random(16000)}ms none;
+        @-moz-document url-prefix() {
+          // Target Firefox only
+          animation-fill-mode: backwards; // transition+animation combo is broken in FFox
+        }
+        // row rollout: transition-delay: 20ms * $i;
+        $stepMs: 50;
+        transition-delay: #{($stepMs * $i) % ($stepMs * math.div($dot-count, 2))}ms;
+        //transition-delay: #{$stepMs * $i * math.tan($angle)}ms;
+      }
+      // Alternative would be getting rid of fluidity and just speed up and slow down the rotation
+      // animation alone (using animation spin keyframes unevenly spaced out).
+      @keyframes fluidity#{$i} {
+        // To insert spaces in between the infinite animation iterations, we need to space-out
+        // the keyframes themselves. E.g. 0-75% out, 10% for transition itself, and 15% time inside.
+        0% {
+          transform: $translated-position;
+        }
+        30% {
+          transform: $translated-position;
+        }
+        50% {
+          $fly-away-factor: 1.25;
+          // Same formula, just bigger multiplier
+          transform: translate(
+            math.round(math.cos($angle) * $circle-size * $fly-away-factor),
+            math.round(math.sin($angle) * $circle-size * $fly-away-factor)
+          );
+        }
+        70% {
+          transform: $translated-position;
+        }
+        100% {
+          transform: $translated-position;
+        }
+      }
+    }
+  }
+}

@@ -17,16 +17,21 @@
     .back {
       display: flex;
       align-items: center;
-      padding: 0 24px 2px;
+      padding: 0 24px 0;
       @include mobile {
-        padding: 0 20px 2px;
+        padding: 0 20px 2;
       }
       margin: 2px;
-      font-size: 40px;
+      box-sizing: content-box;
+      width: 32px;
       color: #686868;
       &:hover,
       &:focus {
         color: $app-color;
+        svg {
+          transform: scale(1.1);
+          transform-origin: center center;
+        }
       }
     }
   }
@@ -37,7 +42,7 @@
     align-items: center;
     padding: 1px 24px 2px;
     @include mobile {
-      padding: 1px 2px 2px;
+      padding: 1px 8px 2px;
     }
     .link {
       height: 50px;
