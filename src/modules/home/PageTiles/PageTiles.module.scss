@@ -92,7 +92,7 @@ $first-animation-length: 0.3s;
         border: 1px solid rgba(225, 227, 232, 0.18);
         // box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
         background-color: #fff;
-        transition: all 0.6s ease;
+        transition: transform 0.6s ease;
         will-change: transform;
       }
     }
@@ -104,7 +104,7 @@ $first-animation-length: 0.3s;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.5);
       filter: saturate(0.8);
-      transition: transform 0.4s ease;
+      transition: transform $first-animation-length ease;
       will-change: transform, filter, box-shadow;
       backface-visibility: hidden;
       &.avatarBackSide {
@@ -139,7 +139,7 @@ $first-animation-length: 0.3s;
       flex-direction: column;
       justify-content: center;
       opacity: 0;
-      transition: all 0.25s ease-in;
+      transition: opacity 0.25s ease-in;
       color: $dark-text-color;
 
       .innerLink {
@@ -169,6 +169,9 @@ $first-animation-length: 0.3s;
       .title {
         bottom: -50px;
         transform: scale(2);
+      }
+      .avatar {
+        transition: transform 0.4s ease;
       }
       &.isExpanded {
         transform: scale(1) translateY(50px);
@@ -200,9 +203,6 @@ $first-animation-length: 0.3s;
       }
     }
     &.otherSiteSelected {
-      //transform: scale(0.5) translate(50px);
-      //transform-origin: bottom center;
-      // also delete the transition defined for this element
       opacity: 0.5;
     }
 
