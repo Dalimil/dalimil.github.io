@@ -18,7 +18,7 @@ export const Header: FC = () => {
         </Link>
       </nav>
       <div className={styles.links}>
-        <SocialLinks linkClassName={styles.link} />
+        <SocialLinks linkClassName={styles.link} hideInstagram={true} />
       </div>
     </header>
   );

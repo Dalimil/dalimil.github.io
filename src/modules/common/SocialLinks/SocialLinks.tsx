@@ -35,23 +35,26 @@ const socialLinks = [
 
 export interface SocialLinksProps {
   linkClassName?: string;
+  hideInstagram?: boolean;
 }
 
-export const SocialLinks: FC<SocialLinksProps> = ({ linkClassName: externalClassName }) => {
+export const SocialLinks: FC<SocialLinksProps> = ({ linkClassName: externalClassName, hideInstagram }) => {
   return (
     <>
-      {socialLinks.map((link) => (
-        <a
-          key={link.href}
-          href={link.href}
-          data-title={link.title}
-          aria-label={link.title}
-          className={concatClasses(styles.socialLink, link.className, externalClassName)}
-          rel={link.rel}
-        >
-          {link.icon}
-        </a>
-      ))}
+      {socialLinks
+        .filter((link) => !hideInstagram || link.title !== 'Instagram')
+        .map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            data-title={link.title}
+            aria-label={link.title}
+            className={concatClasses(styles.socialLink, link.className, externalClassName)}
+            rel={link.rel}
+          >
+            {link.icon}
+          </a>
+        ))}
     </>
   );
 };
