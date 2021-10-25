@@ -49,14 +49,14 @@ export const experience: CareerEntry[] = [
     subTitle: 'Microsoft',
     date: {
       from: 'Oct 2018',
-      to: 'Present',
+      to: 'Oct 2021',
     },
     location: 'Vancouver, British Columbia, Canada',
     img: (props: CustomImgProps) => <Img src={MicrosoftLogo} {...props} />,
     imgEnlarge: true,
     content:
       '• Modernized Office Online front-end by replacing old framework with modern React components across all Office apps.<br />' +
-      '• Currently in Microsoft WebXT, working on the latest Web Experiences for Microsoft users.',
+      "• Implemented the booking system and homepage of Microsoft's TakeLessons.",
   },
   {
     id: 'one-cherry',
