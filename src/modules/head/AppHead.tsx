@@ -41,7 +41,7 @@ export const AppHead: FC = () => {
       <link rel="apple-touch-icon" href="/images/icons/suitcase256.png" sizes="256x256" />
       <link href="/manifest.json" rel="manifest" />
       <link rel="canonical" href={meta.url} />
-      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
     </Head>
   );
 };
