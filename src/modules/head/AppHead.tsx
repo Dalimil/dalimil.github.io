@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import { FC } from 'react';
 
+import personSchema from './person-schema.json';
+
 const meta = {
-  url: '',
-  imageUrl: '',
+  url: 'https://dalimil.github.io/',
+  imageUrl: 'https://dalimil.github.io/images/career/banner.jpg',
   author: 'Dalimil Hajek',
   title: 'Dalimil Hajek - Personal Website and Portfolio',
   description:
@@ -25,6 +27,7 @@ export const AppHead: FC = () => {
       <meta name="keywords" content={meta.keywords} />
       {/* Open Graph */}
       <meta property="og:url" content={meta.url} />
+      <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={meta.title} />
       <meta property="og:site_name" content={meta.title} />
@@ -37,6 +40,8 @@ export const AppHead: FC = () => {
       <link rel="icon" type="image/png" href="/images/icons/suitcase32.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="/images/icons/suitcase256.png" sizes="256x256" />
       <link href="/manifest.json" rel="manifest" />
+      <link rel="canonical" href={meta.url} />
+      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
     </Head>
   );
 };
