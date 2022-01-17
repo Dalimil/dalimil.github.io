@@ -10,6 +10,7 @@ import HackerRankLogo from 'public/images/career/hackerrank.jpg';
 import MicrosoftLogo from 'public/images/career/microsoft.jpg';
 import MozillaLogo from 'public/images/career/mozilla.png';
 import SumdogLogo from 'public/images/career/sumdog.png';
+import TwitterLogo from 'public/images/career/twitter.jpg';
 import { CareerEntry } from './CareerEntry';
 
 // Disable eslint and create Img components already here because of:
@@ -44,14 +45,26 @@ export const education: CareerEntry[] = [
 /** Work experience to be displayed in the career page */
 export const experience: CareerEntry[] = [
   {
+    id: 'twitter',
+    title: 'Software Engineer',
+    subTitle: 'Twitter',
+    date: {
+      from: 'Oct 2021',
+      to: 'Present',
+    },
+    location: 'Vancouver, Canada',
+    img: (props: CustomImgProps) => <Img src={TwitterLogo} {...props} />,
+    content: '• Building awesome front-end web experiences at Twitter...',
+  },
+  {
     id: 'microsoft',
-    title: 'Software Engineer II',
+    title: 'Software Engineer',
     subTitle: 'Microsoft',
     date: {
       from: 'Oct 2018',
       to: 'Oct 2021',
     },
-    location: 'Vancouver, British Columbia, Canada',
+    location: 'Vancouver, Canada',
     img: (props: CustomImgProps) => <Img src={MicrosoftLogo} {...props} />,
     imgEnlarge: true,
     content:
@@ -60,7 +73,7 @@ export const experience: CareerEntry[] = [
   },
   {
     id: 'one-cherry',
-    title: 'Tech Lead at a student startup',
+    title: 'Lead Software Engineer',
     subTitle: 'One Cherry Ltd',
     date: {
       from: 'Feb 2018',
@@ -69,7 +82,7 @@ export const experience: CareerEntry[] = [
     location: 'Edinburgh, United Kingdom',
     img: (props: CustomImgProps) => <Img src={CherryLogo} {...props} />,
     content:
-      '• Led a development team with two direct reports.<br />' +
+      '• Led a startup development team with two direct reports.<br />' +
       '• Managed tasks, code reviews, and developed company&apos;s core-product mobile web app.',
   },
   {

@@ -41,7 +41,7 @@ export const Career: FC = () => {
           </div>
           <div className={styles.intro}>
             <h1>Dalimil Hajek</h1>
-            <p className={styles.secondaryTitle}>Software Engineer II @ Microsoft</p>
+            <p className={styles.secondaryTitle}>Software Engineer at Twitter</p>
             <p className={styles.location}>Vancouver, Canada</p>
             <p className={styles.info}>Passionate about web and user experience.</p>
           </div>
