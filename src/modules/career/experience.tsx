@@ -25,15 +25,11 @@ export const education: CareerEntry[] = [
     id: 'edinburgh',
     title: 'The University of Edinburgh',
     subTitle: 'BSc Computer Science, First Class with Honours',
-    date: {
-      from: '2015',
-      to: '2018',
-    },
     location: 'Edinburgh, United Kingdom',
     img: (props: CustomImgProps) => <Img src={EdinburghLogo} {...props} />,
     imgEnlarge: true,
     content:
-      '• Worked as a Tutor in 2017/2018 (Teaching Support Contract).<br />' +
+      '• Worked as a Tutor in my senior year (Teaching Support Contract).<br />' +
       '• My dissertation project reached 30,000 active users and got acquired.',
     additionalLink: {
       text: 'Visit university page ›',

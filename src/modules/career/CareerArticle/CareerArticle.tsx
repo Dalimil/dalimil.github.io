@@ -16,9 +16,11 @@ export const CareerArticle: FC<CareerArticleProps> = ({ article }) => {
       <header>
         <h3>{article.title}</h3>
         <p className={styles.secondaryTitle}>{article.subTitle}</p>
-        <p className={styles.timePeriod}>
-          <time>{article.date.from}</time> – <time>{article.date.to}</time>
-        </p>
+        {article.date && (
+          <p className={styles.timePeriod}>
+            <time>{article.date.from}</time> – <time>{article.date.to}</time>
+          </p>
+        )}
         {article.location && <p className={styles.location}>{article.location}</p>}
         <article.img
           className={concatClasses(styles.logo, article.imgEnlarge && styles.larger)}

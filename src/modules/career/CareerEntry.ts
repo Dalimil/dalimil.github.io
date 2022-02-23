@@ -4,7 +4,7 @@ export interface CareerEntry {
   id: string;
   title: string;
   subTitle: string;
-  date: {
+  date?: {
     from: string;
     to: string;
   };
