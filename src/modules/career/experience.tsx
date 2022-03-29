@@ -50,7 +50,9 @@ export const experience: CareerEntry[] = [
     },
     location: 'Vancouver, Canada',
     img: (props: CustomImgProps) => <Img src={TwitterLogo} {...props} />,
-    content: '• Building awesome front-end web experiences at Twitter...',
+    content:
+      "• Driving web development of Twitter's Exp Platform. Leading frontend (React, Redux, TypeScript) and application server (Node.js, Twitter services) parts of the platform.<br />" +
+      '• Integrating with Google Cloud and Big Data Systems worked on by data science and data engineering teams.',
   },
   {
     id: 'microsoft',
@@ -72,8 +74,8 @@ export const experience: CareerEntry[] = [
     title: 'Lead Software Engineer',
     subTitle: 'One Cherry Ltd',
     date: {
-      from: 'Feb 2018',
-      to: 'Jul 2018',
+      from: 'Sep 2017',
+      to: 'Sep 2018',
     },
     location: 'Edinburgh, United Kingdom',
     img: (props: CustomImgProps) => <Img src={CherryLogo} {...props} />,
