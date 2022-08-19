@@ -17,23 +17,24 @@
   "sideEffects": false,
   "dependencies": {
     "framer-motion": "^4.1.17",
-    "next": "11.1.3",
+    "next": "12",
     "next-optimized-images": "^3.0.0-canary.10",
-    "nextjs-progressbar": "^0.0.11",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "nextjs-progressbar": "^0.0.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-optimized-image": "^0.4.1"
   },
   "devDependencies": {
-    "@types/react": "17.0.19",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.1",
+    "@types/node": "^18.7.7",
+    "@types/react": "^18.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "eslint": "^8.22.0",
+    "eslint-config-next": "^12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "prettier": "^2.3.2",
-    "sass": "^1.38.2",
-    "typescript": "4.4.2"
+    "prettier": "^2.7.1",
+    "sass": "^1.54.4",
+    "typescript": "^4.7.4"
   }
 }
