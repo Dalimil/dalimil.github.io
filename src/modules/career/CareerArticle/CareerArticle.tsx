@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Img from 'react-optimized-image';
 
 import { concatClasses } from 'utils/concatClasses';
 import { CareerEntry } from '../CareerEntry';

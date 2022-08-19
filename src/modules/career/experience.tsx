@@ -42,7 +42,7 @@ export const education: CareerEntry[] = [
 export const experience: CareerEntry[] = [
   {
     id: 'twitter',
-    title: 'Software Engineer',
+    title: 'Senior Software Engineer',
     subTitle: 'Twitter',
     date: {
       from: 'Oct 2021',
@@ -51,12 +51,13 @@ export const experience: CareerEntry[] = [
     location: 'Vancouver, Canada',
     img: (props: CustomImgProps) => <Img src={TwitterLogo} {...props} />,
     content:
-      "• Driving web development of Twitter's Exp Platform. Leading frontend (React, Redux, TypeScript) and application server (Node.js, Twitter services) parts of the platform.<br />" +
+      "• Driving web development of Twitter's Ads Exp Platform.<br />" +
+      '• Leading frontend (React, Redux, TypeScript) and application server (Node.js, Twitter services) parts of the platform.<br />' +
       '• Integrating with Google Cloud and Big Data Systems worked on by data science and data engineering teams.',
   },
   {
     id: 'microsoft',
-    title: 'Software Engineer',
+    title: 'Software Engineer II',
     subTitle: 'Microsoft',
     date: {
       from: 'Oct 2018',
@@ -71,7 +72,7 @@ export const experience: CareerEntry[] = [
   },
   {
     id: 'one-cherry',
-    title: 'Lead Software Engineer',
+    title: 'Software Engineer',
     subTitle: 'One Cherry Ltd',
     date: {
       from: 'Sep 2017',
@@ -157,7 +158,7 @@ export const openSource: CareerEntry[] = [
       to: 'Feb 2017',
     },
     img: (props: CustomImgProps) => <Img src={MozillaLogo} {...props} />,
-    content: '• Fixed bugs in Mozilla Firefox, primarily in Firefox Developer Tools.',
+    content: '• Contributions to Mozilla Firefox, primarily Firefox Developer Tools.',
   },
   {
     id: 'microsoft-fluent',
