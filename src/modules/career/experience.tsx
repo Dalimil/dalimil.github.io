@@ -46,7 +46,7 @@ export const experience: CareerEntry[] = [
     subTitle: 'Twitter',
     date: {
       from: 'Oct 2021',
-      to: 'Present',
+      to: 'Jan 2023',
     },
     location: 'Vancouver, Canada',
     img: (props: CustomImgProps) => <Img src={TwitterLogo} {...props} />,
@@ -99,7 +99,7 @@ export const experience: CareerEntry[] = [
   },
   {
     id: 'expedia',
-    title: 'Application Security Engineer',
+    title: 'Software Engineering Intern',
     subTitle: 'Expedia',
     date: {
       from: 'Jun 2016',
@@ -107,7 +107,7 @@ export const experience: CareerEntry[] = [
     },
     location: 'London, United Kingdom',
     img: (props: CustomImgProps) => <Img src={ExpediaLogo} {...props} />,
-    content: '• Integrated a web app security scanner into the testing pipeline of Hotels.com',
+    content: '• Integrated Zed Attack Proxy (a web application security scanner) into Hotels.com',
   },
   {
     id: 'hackerrank',
