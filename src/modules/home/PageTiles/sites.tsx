@@ -28,7 +28,7 @@ interface Site {
   description: string;
   sprites: boolean;
   backSideImgAlt?: string;
-  badges?: { img: string }[];
+  badges?: { img: StaticImageData }[];
 }
 
 export const sites: Site[] = [

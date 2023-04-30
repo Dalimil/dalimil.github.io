@@ -58,7 +58,7 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
                 {images.secondary && (
                   <ExportedImage
                     src={images.secondary}
-                    alt={site.backSideImgAlt}
+                    alt={site.backSideImgAlt ?? ''}
                     className={concatClasses(styles.avatar, styles.avatarBackSide)}
                   />
                 )}
