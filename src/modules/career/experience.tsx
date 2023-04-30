@@ -1,5 +1,6 @@
 import AvastLogo from 'public/images/career/avast.png';
 import CherryLogo from 'public/images/career/cherry.png';
+import EdgeDeltaLogo from 'public/images/career/edgedelta.jpg';
 import EdinburghLogo from 'public/images/career/edinburgh.png';
 import ExpediaLogo from 'public/images/career/expedia.jpg';
 import GoogleLogo from 'public/images/career/google.png';
@@ -37,6 +38,18 @@ export const education: CareerEntry[] = [
 
 /** Work experience to be displayed in the career page */
 export const experience: CareerEntry[] = [
+  {
+    id: 'edgedelta',
+    title: 'Senior Software Engineer',
+    subTitle: 'Edge Delta',
+    date: {
+      from: 'Apr 2023',
+      to: 'Present',
+    },
+    location: 'Vancouver, Canada',
+    img: EdgeDeltaLogo,
+    content: '• Currently building web frontend at Edge Delta...',
+  },
   {
     id: 'twitter',
     title: 'Senior Software Engineer',
@@ -79,7 +92,7 @@ export const experience: CareerEntry[] = [
     img: CherryLogo,
     content:
       '• Led a startup development team with two direct reports.<br />' +
-      '• Managed tasks, code reviews, and developed company&apos;s core-product mobile web app.',
+      '• Managed tasks, code reviews, and developed company&apos;s core-product web app.',
   },
   {
     id: 'google',
