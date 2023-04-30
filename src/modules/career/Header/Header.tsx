@@ -10,11 +10,9 @@ export const Header: FC = () => {
   return (
     <header className={styles.root}>
       <nav>
-        <Link href="/">
-          <a className={styles.back}>
-            {backArrowIconCircle}
-            <span className="screen-reader-text">Return to home page</span>
-          </a>
+        <Link href="/" className={styles.back}>
+          {backArrowIconCircle}
+          <span className="screen-reader-text">Return to home page</span>
         </Link>
       </nav>
       <div className={styles.links}>

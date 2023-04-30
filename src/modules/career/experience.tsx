@@ -1,6 +1,3 @@
-import Img from 'react-optimized-image';
-
-import { CustomImgProps } from 'modules/common/CustomImgProps';
 import AvastLogo from 'public/images/career/avast.png';
 import CherryLogo from 'public/images/career/cherry.png';
 import EdinburghLogo from 'public/images/career/edinburgh.png';
@@ -26,7 +23,7 @@ export const education: CareerEntry[] = [
     title: 'The University of Edinburgh',
     subTitle: 'BSc Computer Science, First Class with Honours',
     location: 'Edinburgh, United Kingdom',
-    img: (props: CustomImgProps) => <Img src={EdinburghLogo} {...props} />,
+    img: EdinburghLogo,
     imgEnlarge: true,
     content:
       '• Worked as a Tutor in my senior year (Teaching Support Contract).<br />' +
@@ -49,7 +46,7 @@ export const experience: CareerEntry[] = [
       to: 'Jan 2023',
     },
     location: 'Vancouver, Canada',
-    img: (props: CustomImgProps) => <Img src={TwitterLogo} {...props} />,
+    img: TwitterLogo,
     content:
       "• Driving web development of Twitter's Ads Exp Platform.<br />" +
       '• Leading frontend (React, Redux, TypeScript) and application server (Node.js, Twitter services) parts of the platform.<br />' +
@@ -64,7 +61,7 @@ export const experience: CareerEntry[] = [
       to: 'Oct 2021',
     },
     location: 'Vancouver, Canada',
-    img: (props: CustomImgProps) => <Img src={MicrosoftLogo} {...props} />,
+    img: MicrosoftLogo,
     imgEnlarge: true,
     content:
       '• Modernized Office Online front-end by replacing old framework with modern React components across all Office apps.<br />' +
@@ -79,7 +76,7 @@ export const experience: CareerEntry[] = [
       to: 'Sep 2018',
     },
     location: 'Edinburgh, United Kingdom',
-    img: (props: CustomImgProps) => <Img src={CherryLogo} {...props} />,
+    img: CherryLogo,
     content:
       '• Led a startup development team with two direct reports.<br />' +
       '• Managed tasks, code reviews, and developed company&apos;s core-product mobile web app.',
@@ -93,7 +90,7 @@ export const experience: CareerEntry[] = [
       to: 'Sep 2017',
     },
     location: 'Mountain View, California',
-    img: (props: CustomImgProps) => <Img src={GoogleLogo} {...props} />,
+    img: GoogleLogo,
     imgEnlarge: true,
     content: '• Developed web application front-end features of Google Hangouts Chat.',
   },
@@ -106,7 +103,7 @@ export const experience: CareerEntry[] = [
       to: 'Sep 2016',
     },
     location: 'London, United Kingdom',
-    img: (props: CustomImgProps) => <Img src={ExpediaLogo} {...props} />,
+    img: ExpediaLogo,
     content: '• Integrated Zed Attack Proxy (a web application security scanner) into Hotels.com',
   },
   {
@@ -118,7 +115,7 @@ export const experience: CareerEntry[] = [
       to: 'Jun 2016',
     },
     location: 'Remote',
-    img: (props: CustomImgProps) => <Img src={HackerRankLogo} {...props} />,
+    img: HackerRankLogo,
     content: '• Worked closely with HackerRank engineers to create new programming challenges and weekly contests.',
   },
   {
@@ -130,7 +127,7 @@ export const experience: CareerEntry[] = [
       to: 'May 2016',
     },
     location: 'Edinburgh, United Kingdom',
-    img: (props: CustomImgProps) => <Img src={SumdogLogo} {...props} />,
+    img: SumdogLogo,
     content: '• Wrote Scala code for company’s web backend services.',
   },
   {
@@ -142,7 +139,7 @@ export const experience: CareerEntry[] = [
       to: 'Sep 2015',
     },
     location: 'Prague, Czech Republic',
-    img: (props: CustomImgProps) => <Img src={AvastLogo} {...props} />,
+    img: AvastLogo,
     content: '• Worked on the Android team on apps such as Antivirus & Security.',
   },
 ];
@@ -157,7 +154,7 @@ export const openSource: CareerEntry[] = [
       from: 'Jun 2016',
       to: 'Feb 2017',
     },
-    img: (props: CustomImgProps) => <Img src={MozillaLogo} {...props} />,
+    img: MozillaLogo,
     content: '• Contributions to Mozilla Firefox, primarily Firefox Developer Tools.',
   },
   {
@@ -168,7 +165,7 @@ export const openSource: CareerEntry[] = [
       from: 'Feb 2019',
       to: 'Apr 2021',
     },
-    img: (props: CustomImgProps) => <Img src={MicrosoftLogo} {...props} />,
+    img: MicrosoftLogo,
     content: '• Contributed multiple improvements to Microsoft&apos;s leading UI/UX framework.',
   },
 ];

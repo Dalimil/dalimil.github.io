@@ -1,3 +1,4 @@
+import ExportedImage from 'next-image-export-optimizer';
 import { FC } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
@@ -21,7 +22,8 @@ export const CareerArticle: FC<CareerArticleProps> = ({ article }) => {
           </p>
         )}
         {article.location && <p className={styles.location}>{article.location}</p>}
-        <article.img
+        <ExportedImage
+          src={article.img}
           className={concatClasses(styles.logo, article.imgEnlarge && styles.larger)}
           alt={article.subTitle}
         />

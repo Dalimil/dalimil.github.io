@@ -1,5 +1,5 @@
+import ExportedImage from 'next-image-export-optimizer';
 import { FC } from 'react';
-import Img from 'react-optimized-image';
 
 import CareerBannerImage from 'public/images/career/banner.jpg';
 import AvatarImage from 'public/images/dali-career-profile.jpg';
@@ -34,10 +34,10 @@ export const Career: FC = () => {
       <main className={styles.main}>
         <header>
           <div className={styles.banner}>
-            <Img src={CareerBannerImage} alt="" />
+            <ExportedImage src={CareerBannerImage} alt="" />
           </div>
           <div className={styles.avatar}>
-            <Img src={AvatarImage} alt="Dalimil Hajek career profile photo" />
+            <ExportedImage src={AvatarImage} alt="Dalimil Hajek career profile photo" />
           </div>
           <div className={styles.intro}>
             <h1>Dalimil Hajek</h1>

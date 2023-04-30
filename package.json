@@ -5,11 +5,11 @@
   "description": "Repository containing Dalimil Hajek's portfolio website.",
   "license": "UNLICENSED",
   "engines": {
-    "node": ">=14.17.0"
+    "node": ">=18.12.0"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next-image-export-optimizer",
     "start": "npx serve ./out/",
     "deploy": "yarn build && type nul > out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
     "lint": "next lint"
@@ -17,19 +17,18 @@
   "sideEffects": false,
   "dependencies": {
     "framer-motion": "^4.1.17",
-    "next": "12",
-    "next-optimized-images": "^3.0.0-canary.10",
+    "next": "^13.3.2",
+    "next-image-export-optimizer": "^1.6.0",
     "nextjs-progressbar": "^0.0.14",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-optimized-image": "^0.4.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.7",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "eslint": "^8.22.0",
-    "eslint-config-next": "^12.2.5",
+    "eslint-config-next": "^13.3.2",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",

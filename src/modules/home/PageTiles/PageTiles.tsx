@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import ExportedImage from 'next-image-export-optimizer';
 import { Dispatch, FC, SetStateAction } from 'react';
 
 import { concatClasses } from 'utils/concatClasses';
-import { siteImages, sites } from './sites';
+import { sites } from './sites';
 import { Sprites } from './Sprites';
 
 import styles from './PageTiles.module.scss';
@@ -26,7 +27,7 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
         const buttonId = `${site.id}-button`;
         const panelId = `${site.id}-panel`;
         const spriteCount = 100;
-        const images = siteImages[site.id];
+        const images = site.images;
         return (
           // We use DIV here as it has no a11y meaning, just wrapper for our accordion pieces.
           <div
@@ -49,18 +50,20 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
                   e.stopPropagation();
                 }}
               >
-                <images.primary
+                <ExportedImage
+                  src={images.primary}
                   alt={site.imgAlt}
                   className={concatClasses(styles.avatar, images.secondary && styles.avatarFrontSide)}
                 />
                 {images.secondary && (
-                  <images.secondary
+                  <ExportedImage
+                    src={images.secondary}
                     alt={site.backSideImgAlt}
                     className={concatClasses(styles.avatar, styles.avatarBackSide)}
                   />
                 )}
                 {site.badges?.map((badge, index) => (
-                  <img key={index} className={styles.badge} src={badge.img} alt="" />
+                  <ExportedImage key={index} className={styles.badge} src={badge.img} alt="" />
                 ))}
                 <div className={styles.title} id={titleId}>
                   {site.title}
@@ -77,8 +80,8 @@ export const PageTiles: FC<PageTilesProps> = ({ selected, setSelected }) => {
                 <span>{site.description}</span>
                 <span className={styles.innerLink}>
                   {site.urlLink.startsWith('/') ? (
-                    <Link href={site.urlLink}>
-                      <a tabIndex={isExpanded ? undefined : -1}>{site.urlLinkText}</a>
+                    <Link href={site.urlLink} tabIndex={isExpanded ? undefined : -1}>
+                      {site.urlLinkText}
                     </Link>
                   ) : (
                     <a href={site.urlLink} tabIndex={isExpanded ? undefined : -1}>

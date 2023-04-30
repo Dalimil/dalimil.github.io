@@ -1,4 +1,4 @@
-import { CustomImgProps } from 'modules/common/CustomImgProps';
+import { StaticImageData } from 'next/image';
 
 export interface CareerEntry {
   id: string;
@@ -9,7 +9,7 @@ export interface CareerEntry {
     to: string;
   };
   location?: string;
-  img: React.FC<CustomImgProps>;
+  img: StaticImageData;
   imgEnlarge?: boolean;
   content: string;
   additionalLink?: {

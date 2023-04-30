@@ -1,6 +1,5 @@
-import Img from 'react-optimized-image';
+import { StaticImageData } from 'next/image';
 
-import { CustomImgProps } from 'modules/common/CustomImgProps';
 import CareerAvatar from 'public/images/dali-career-profile.jpg';
 import PhotographyAvatar from 'public/images/dali-photography-profile.jpg';
 import UniversityAvatar from 'public/images/dali-university-profile.jpg';
@@ -19,6 +18,10 @@ interface Site {
   id: SiteId;
   title: string;
   className: string;
+  images: {
+    primary: StaticImageData;
+    secondary?: StaticImageData;
+  };
   imgAlt: string;
   urlLink: string;
   urlLinkText: string;
@@ -28,35 +31,14 @@ interface Site {
   badges?: { img: string }[];
 }
 
-type SiteImages = {
-  [key in SiteId]: {
-    primary: React.FC<CustomImgProps>;
-    secondary?: React.FC<CustomImgProps>;
-  };
-};
-
-// Disable eslint and create Img components already here because of:
-// https://github.com/cyrilwanner/react-optimized-image/issues/19
-/* eslint-disable react/display-name */
-export const siteImages: SiteImages = {
-  [SiteId.career]: {
-    primary: (props: CustomImgProps) => <Img src={CareerAvatar} {...props} />,
-  },
-  [SiteId.university]: {
-    primary: (props: CustomImgProps) => <Img src={UniversityIcon} {...props} />,
-    secondary: (props: CustomImgProps) => <Img src={UniversityAvatar} {...props} />,
-  },
-  [SiteId.photography]: {
-    primary: (props: CustomImgProps) => <Img src={PhotographyIcon} {...props} />,
-    secondary: (props: CustomImgProps) => <Img src={PhotographyAvatar} {...props} />,
-  },
-};
-
 export const sites: Site[] = [
   {
     id: SiteId.career,
     title: 'Career',
     className: styles.career,
+    images: {
+      primary: CareerAvatar,
+    },
     imgAlt: 'Dalimil Hajek career profile photo',
     urlLink: '/career',
     urlLinkText: 'Show career site ›',
@@ -67,6 +49,10 @@ export const sites: Site[] = [
     id: SiteId.university,
     title: 'University',
     className: styles.university,
+    images: {
+      primary: UniversityIcon,
+      secondary: UniversityAvatar,
+    },
     imgAlt: 'University of Edinburgh logo',
     backSideImgAlt: 'Dalimil Hajek profile photo from university years',
     urlLink: 'https://dalimil.github.io/university',
@@ -78,6 +64,10 @@ export const sites: Site[] = [
     id: SiteId.photography,
     title: 'Photography',
     className: styles.photography,
+    images: {
+      primary: PhotographyIcon,
+      secondary: PhotographyAvatar,
+    },
     imgAlt: 'Icon of a collection of photos.',
     urlLink: 'https://dali-media.web.app/',
     urlLinkText: 'Visit photography ›',
