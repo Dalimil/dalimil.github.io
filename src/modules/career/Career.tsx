@@ -34,10 +34,10 @@ export const Career: FC = () => {
       <main className={styles.main}>
         <header>
           <div className={styles.banner}>
-            <ExportedImage src={CareerBannerImage} alt="" />
+            <ExportedImage src={CareerBannerImage} alt="" priority={true} />
           </div>
           <div className={styles.avatar}>
-            <ExportedImage src={AvatarImage} alt="Dalimil Hajek career profile photo" />
+            <ExportedImage src={AvatarImage} alt="Dalimil Hajek career profile photo" priority={true} />
           </div>
           <div className={styles.intro}>
             <h1>Dalimil Hajek</h1>
