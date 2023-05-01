@@ -9,9 +9,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "ANALYZE=true next build && next-image-export-optimizer",
+    "build": "next build && next-image-export-optimizer",
+    "build:analyze": "ANALYZE=true next build",
     "start": "npx serve ./out/",
-    "deploy": "yarn build && type nul > out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
+    "deploy": "yarn build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
     "lint": "next lint"
   },
   "sideEffects": false,
