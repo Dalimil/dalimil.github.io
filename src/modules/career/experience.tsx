@@ -48,7 +48,9 @@ export const experience: CareerEntry[] = [
     },
     location: 'Vancouver, Canada',
     img: EdgeDeltaLogo,
-    content: '• Currently building web frontend at Edge Delta...',
+    content:
+      '• Implemented the visual pipeline builder, which has grown into the main selling point of our company.<br />' +
+      '• Owning the frontend of the Pipelines team.',
   },
   {
     id: 'twitter',
@@ -77,8 +79,8 @@ export const experience: CareerEntry[] = [
     img: MicrosoftLogo,
     imgEnlarge: true,
     content:
-      '• Modernized Office Online front-end by replacing old framework with modern React components across all Office apps.<br />' +
-      "• Implemented the booking system and homepage of Microsoft's TakeLessons.",
+      '• We moved Microsoft Office Online to React with a modern frontend stack.<br />' +
+      '• Worked across geographically distributed teams to drive adoption of our UI component library across the organization.',
   },
   {
     id: 'one-cherry',
