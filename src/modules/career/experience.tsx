@@ -79,7 +79,7 @@ export const experience: CareerEntry[] = [
     img: MicrosoftLogo,
     imgEnlarge: true,
     content:
-      '• We moved Microsoft Office Online to React with a modern frontend stack.<br />' +
+      '• Transitioned Microsoft Office Online to React with a modern frontend stack.<br />' +
       '• Worked across geographically distributed teams to drive adoption of our UI component library across the organization.',
   },
   {
