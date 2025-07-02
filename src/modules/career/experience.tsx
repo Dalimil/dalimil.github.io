@@ -7,6 +7,7 @@ import GoogleLogo from 'public/images/career/google.png';
 import HackerRankLogo from 'public/images/career/hackerrank.jpg';
 import MicrosoftLogo from 'public/images/career/microsoft.jpg';
 import MozillaLogo from 'public/images/career/mozilla.png';
+import StripeLogo from 'public/images/career/stripe.jpg';
 import SumdogLogo from 'public/images/career/sumdog.png';
 import TwitterLogo from 'public/images/career/twitter.jpg';
 import { CareerEntry } from './CareerEntry';
@@ -39,12 +40,24 @@ export const education: CareerEntry[] = [
 /** Work experience to be displayed in the career page */
 export const experience: CareerEntry[] = [
   {
+    id: 'stripe',
+    title: 'Senior Software Engineer',
+    subTitle: 'Stripe',
+    date: {
+      from: 'Apr 2025',
+      to: 'Present',
+    },
+    // location: 'Vancouver, Canada',
+    img: StripeLogo,
+    content: '• web & frontend',
+  },
+  {
     id: 'edgedelta',
     title: 'Senior Software Engineer',
     subTitle: 'Edge Delta',
     date: {
       from: 'Apr 2023',
-      to: 'Present',
+      to: 'Apr 2025',
     },
     location: 'Vancouver, Canada',
     img: EdgeDeltaLogo,
