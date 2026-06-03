@@ -13,7 +13,7 @@ const socialLinks = [
     title: 'LinkedIn',
   },
   {
-    href: 'mailto:dalimilhajek@gmail.com',
+    href: 'mailto:dali.mil.hajek+portfolio@gmail.com',
     icon: emailIcon,
     className: styles.email,
     title: 'Email',
